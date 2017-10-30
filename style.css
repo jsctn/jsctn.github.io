@@ -20,7 +20,7 @@ iframe {
 	max-width: 100%;
 }
 
-/*////////////////////////////////////////////////////////*/
+/*************************************************************/
 
 #sidebar {
 	background: #111;
@@ -37,6 +37,10 @@ iframe {
 }
 
 a:hover {
+	text-decoration: underline;
+}
+
+#sidebar a:hover {
 	text-decoration: underline;
 }
 
@@ -101,7 +105,7 @@ img.pic {
 	max-width: 350px;
 }
 
-/*////////////////////////////////////////////////////////*/
+/*************************************************************/
 
 @media only screen and (min-width: 768px) {
     /* For NOT mobile: */
