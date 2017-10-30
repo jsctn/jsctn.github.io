@@ -23,7 +23,7 @@ iframe {
 /*////////////////////////////////////////////////////////*/
 
 #sidebar {
-	background: black;
+	background: #111;
 	color: white;
 }
 
@@ -93,6 +93,7 @@ br {
 
 img#bio {
 	width: 90%;
+	border-radius: 100%;
 }
 
 img.pic {
@@ -161,7 +162,7 @@ img.pic {
 		margin-bottom: 180px;
 	}
 	#mobile-foot {
-		background: black;
+		background: #111;
 		color: gray;
 		font-size: 14px;
 		padding: 24px 24px 18px 24px;
