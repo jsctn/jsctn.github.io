@@ -134,6 +134,7 @@ li {
 	width: 300px;
 	height: 300px;
 	mask-image: url(logo/final.svg);
+	-webkit-mask-image: url(logo/final.svg);
 	background-color: #cc6072;
 }
 .wave {
