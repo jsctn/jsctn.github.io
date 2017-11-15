@@ -1,192 +1,180 @@
-/* html {
-    min-height: 100%;
-    position: relative;
-}*/
-
+@font-face {
+    font-family: Renner;
+    src: url(fonts/renner-book.otf);
+}
+@font-face {
+    font-family: Lemon Milk;
+    src: url(fonts/LemonMilkbold.otf);
+}
+body, html { 
+    overflow-x: hidden; 
+    overflow-y: hidden;
+}
 body {
-	margin: 0;
-	font-family: 'Roboto', sans-serif;
+	text-align: center;/*
+	background-color: #90a5a1;
+	background-color: #f9f9f9;*/
+	background: linear-gradient(270deg, #f9f9f9, #90a5a1);
+	font-family: "Renner";
 }
-
+a, a:visited {
+	color: #29222c;
+}
 a:hover {
-	text-decoration: underline;
+	color: #29222c;
+	background-color: #bec6c4;
 }
-
-h1, h2, h3, h4, h5, h6 {
-	font-weight: bold;
-}
-
-iframe {
-	max-width: 100%;
-}
-
-/*************************************************************/
-
-#sidebar {
-	background: #111;
-	color: white;
-}
-
-#sidebar a {
-	color: white;
-	text-decoration: none;
-}
-
-#sidebar a:visited {
-	color: white;
-}
-
-a:hover {
-	text-decoration: underline;
-}
-
-#sidebar a:hover {
-	text-decoration: underline;
-}
-
-#sidebar-main ul {
-	list-style-type: none;
-	padding: 0;
-	padding-right: 25px;
-	margin-top: 25px;
-	text-align: right;
-}
-
-#sidebar-main li {
-	text-transform: uppercase;
-	letter-spacing: 3px;
-}
-
-#sidebar-foot {
-	color: gray;
-	font-size: 12px;
+#loading {
+	width: 100%;
+	height: 100vh;
 	position: absolute;
-	bottom: 0;
+	z-index: 1000;
+    -webkit-animation-name: fadeout;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-delay: 2s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-fill-mode: forwards;
 }
-
-#sidebar-foot ul {
+#about {
+	width: 100%;
+	height: 100vh;
+	position: absolute;
+	z-index: -10;
+	opacity: 0;
+    -webkit-animation-name: fadein;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-delay: 2s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-fill-mode: forwards;
+}
+#about-inner {
+	height: 250px;
+	width: 350px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	margin: auto;
+}
+h1 {
+	font-size: 20pt;
+}
+#name {
+	font-family: "Lemon Milk";
+	font-size: 30pt;
+	text-transform: capitalize;
+	letter-spacing: 6pt;
+	display: inline-block;
+	margin: 8px 0;
+	color: #cc6072;
+	text-shadow: 3px 3px #443c49;
+}
+p {
+	font-size: 14pt;
+}
+ul {
+	margin-top: 36px;
 	list-style-type: none;
 	padding: 0;
 }
-
-#sidebar-foot li {
+li {
 	display: inline;
-	margin-right: 3px;
+	margin-right: 4px;
 }
 
-.content-section {
-	margin-bottom: 50px;
+#content {
+	width: 100%;
+	height: 100vh;
+	position: absolute;
+	z-index: -1000;
+	opacity: 0;
+	background: linear-gradient(330deg, #e3d9e8, #f9f9f9);
+    -webkit-animation-name: fadein;
+    -webkit-animation-duration: 1.5s;
+    -webkit-animation-delay: 0.5s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-fill-mode: forwards;
 }
-
-.content-section p {
-	max-width: 600px;
+/* #stuff {
+	width: 100%;
+	height: 100vh;
+	position: absolute;
+	z-index: -99999;
+	opacity: 0;
+	background-color: white;
+    -webkit-animation-name: fadein;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-delay: 3s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-fill-mode: forwards;
+} */
+.panel {
+	height: 100vh;
 }
-
-.content-section h3 {
-	background: LightGray;
-	padding: 5px;
+.panel-name {
+	font-family: "Lemon Milk";
+	font-size: 48pt;
+	color: #222c2a;
 }
-
-.content-section h5 {
-	margin-top: 20px;
+#photo {
+	position: absolute;
+	left: 0;
+	bottom: -15px;
 }
-
-br {
-	margin: 10px 0;
+#design {
+	position: absolute;
+	right: 0;
+	top: -15px;
 }
-
-img#bio {
-	width: 90%;
-	border-radius: 100%;
+#box {
+	position:relative;
+	display: block;
+	margin: 200px auto;
+	width: 300px;
+	height: 300px;
+	mask-image: url(logo/final.svg);
+	background-color: #cc6072;
 }
-
-img.pic {
-	width: 95%;
-	max-width: 350px;
+.wave {
+	background: #bec6c4;
+	display:inline-block;
+	height:63%;
+	width:5px;
+	position:absolute;
+	-webkit-animation-name:             dostuff; 
+	-webkit-animation-duration:         3s; 
+	-webkit-animation-iteration-count:  infinite;
+	-webkit-transition-timing-function: ease-in-out;
 }
-
-/*************************************************************/
-
-@media only screen and (min-width: 768px) {
-    /* For NOT mobile: */
-    #sidebar {
-    	height: 100%;
-    	position: fixed;
-    	min-width: 220px;
-		padding: 75px 25px 15px 25px;
-    }
-	.bolded {
-		font-weight: bold;
-	}
-    #sidebar-main li {
-		margin: 8px 0;
-		font-size: 18px;
-	}
-    .mobile-divider {
-    	display: none;
-    }
-    #content {
-    	max-width: 800px;
-		padding: 125px 25px 50px 45px;
-	}
-
-	#mobile-foot {
-		display: none;
-	}
+/*.wave2 {
+	background: #bec6c4;
+	display:inline-block;
+	height:8px;
+	width:55%;
+	position:absolute;
+	left: 0;
+	-webkit-animation-name:             otherstuff; 
+	-webkit-animation-duration:         5s; 
+	-webkit-animation-iteration-count:  infinite;
+	-webkit-transition-timing-function: ease-in-out;
+}*/
+@-webkit-keyframes dostuff{
+	0%   {height:63%;}
+	50%  {height:40%;}
+	100% {height:63%;}
 }
-
-@media only screen and (max-width: 768px) {
-    /* For mobile phones: */
-    #sidebar {
-    	text-align: center;
-    	position: fixed;
-    	width: 100%;
-		padding: 15px 25px;
-    }
-    #my-name {
-    	display: none;
-    }
-    #sidebar-main ul {
-    	position: sticky;
-    	top: 0;
-    	text-align: center;
-    	margin: 12px 0;
-	}
-    #sidebar-main li {
-    	font-weight: bold;
-    	font-size: 12px;
-		display: inline;
-	}
-	#sidebar-foot {
-		display: none;
-	}
-	#content {
-		z-index: -99;
-		top: 160px;
-		margin-bottom: 180px;
-	}
-	#mobile-foot {
-		background: #111;
-		color: gray;
-		font-size: 14px;
-		padding: 24px 24px 18px 24px;
-	}
-	#mobile-foot a {
-		color: white;
-		height: 160px;
-	}
-	#mobile-foot a:visited {
-		color: white;
-	}
-	#mobile-foot a:hover {
-		text-decoration: underline;
-	}
-	#mobile-foot ul {
-		list-style-type: none;
-		padding: 0;
-	}
-	#mobile-foot li {
-		display: inline;
-		margin-right: 3px;
-	}
+/*@-webkit-keyframes otherstuff{
+	0%   {width:55%;}
+	50%  {width:45%;}
+	100% {width:55%;}
+}*/
+@-webkit-keyframes fadeout {
+    0% {opacity: 1; z-index: 1000;}
+    99% {opacity: 0; z-index: 1000;}
+    100% {opacity: 0; z-index: -99999}
+}
+@-webkit-keyframes fadein {
+    from {opacity: 0;}
+    to {opacity: 1;}
 }
