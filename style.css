@@ -11,21 +11,13 @@ body, html {
     overflow-y: hidden;
 }
 body {
-	text-align: center;/*
+	text-align: center;
+	background-color: #f9f9f9; /*
 	background-color: #90a5a1;
-	background-color: #f9f9f9;*/
-	background: linear-gradient(270deg, #f9f9f9, #90a5a1);
+	background: linear-gradient(270deg, #f9f9f9, #90a5a1);*/
 	font-family: "Renner";
 }
-a, a:visited {
-	color: #29222c;
-	transition: background-color 0.6s ease;
-}
-a:hover {
-	color: #29222c;
-	background-color: #bec6c4;
-	transition: background-color 0.6s ease;
-}
+
 #loading {
 	width: 100%;
 	height: 100vh;
@@ -33,7 +25,7 @@ a:hover {
 	z-index: 1000;
     -webkit-animation-name: fadeout;
     -webkit-animation-duration: 2s;
-    -webkit-animation-delay: 2s;
+    -webkit-animation-delay: 2.5s;
     -webkit-animation-iteration-count: 1;
     -webkit-animation-fill-mode: forwards;
 }
@@ -45,13 +37,14 @@ a:hover {
 	opacity: 0;
     -webkit-animation-name: fadein;
     -webkit-animation-duration: 2s;
-    -webkit-animation-delay: 2s;
+    -webkit-animation-delay: 2.5s;
     -webkit-animation-iteration-count: 1;
     -webkit-animation-fill-mode: forwards;
 }
 #about-inner {
 	height: 250px;
-	width: 350px;
+	width: 95%;
+	max-width: 350px;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -72,8 +65,20 @@ h1 {
 	color: #cc6072;
 	text-shadow: 3px 3px #443c49;
 }
-p {
+a, a:visited {
+	color: #29222c;
+	transition: background-color 0.6s ease;
+}
+a:hover {
+	color: #29222c;
+	background-color: #bec6c4;
+	transition: background-color 0.6s ease;
+}
+#make {
 	font-size: 14pt;
+}
+#soon a {
+	text-decoration: underline;
 }
 ul {
 	margin-top: 36px;
@@ -85,16 +90,16 @@ li {
 	margin-right: 4px;
 }
 
-#content {
+.panel-name {/*
 	width: 100%;
 	height: 100vh;
 	position: absolute;
+	background: linear-gradient(330deg, #e3d9e8, #f9f9f9); */
 	z-index: -1000;
 	opacity: 0;
-	background: linear-gradient(330deg, #e3d9e8, #f9f9f9);
     -webkit-animation-name: fadein;
     -webkit-animation-duration: 1.5s;
-    -webkit-animation-delay: 0.5s;
+    -webkit-animation-delay: 0.8s;
     -webkit-animation-iteration-count: 1;
     -webkit-animation-fill-mode: forwards;
 }
@@ -118,6 +123,13 @@ li {
 	font-family: "Lemon Milk";
 	font-size: 48pt;
 	color: #222c2a;
+
+	font-size: 48pt;
+	transition: font-size 0.2s ease-in;
+}
+.panel-name:hover {
+	font-size: 52pt;
+	transition: font-size 0.2s ease-in;
 }
 #photo {
 	position: absolute;
@@ -129,6 +141,7 @@ li {
 	right: 0;
 	top: -15px;
 }
+
 #box {
 	/*display: block;
 	margin: 200px auto;*/
