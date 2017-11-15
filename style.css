@@ -34,12 +34,6 @@ body {
 	height: 100vh;
 	position: absolute;
 	z-index: -10;
-	opacity: 0;
-    -webkit-animation-name: fadein;
-    -webkit-animation-duration: 2s;
-    -webkit-animation-delay: 2.5s;
-    -webkit-animation-iteration-count: 1;
-    -webkit-animation-fill-mode: forwards;
 }
 #about-inner {
 	height: 250px;
@@ -51,6 +45,12 @@ body {
 	bottom: 0;
 	right: 0;
 	margin: auto;
+	opacity: 0;
+    -webkit-animation-name: fadein;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-delay: 2.5s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-fill-mode: forwards;
 }
 h1 {
 	font-size: 20pt;
