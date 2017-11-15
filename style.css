@@ -130,11 +130,16 @@ li {
 	top: -15px;
 }
 #box {
-	position:relative;
-	display: block;
-	margin: 200px auto;
+	/*display: block;
+	margin: 200px auto;*/
 	width: 300px;
 	height: 300px;
+	position:absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	margin: auto;
 	mask-image: url(logo/final.svg);
 	-webkit-mask-image: url(logo/final.svg);
 	background-color: #cc6072;
