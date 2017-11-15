@@ -19,10 +19,12 @@ body {
 }
 a, a:visited {
 	color: #29222c;
+	transition: background-color 0.6s ease;
 }
 a:hover {
 	color: #29222c;
 	background-color: #bec6c4;
+	transition: background-color 0.6s ease;
 }
 #loading {
 	width: 100%;
