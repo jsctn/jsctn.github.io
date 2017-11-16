@@ -6,6 +6,9 @@
     font-family: Lemon Milk;
     src: url(fonts/LemonMilkbold.otf);
 }
+@-ms-viewport{
+	width: device-width;
+}
 body, html { 
     overflow-x: hidden; 
     overflow-y: hidden;
