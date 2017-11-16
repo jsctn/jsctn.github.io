@@ -25,7 +25,7 @@ body {
 	z-index: 1000;
     -webkit-animation-name: fadeout;
     -webkit-animation-duration: 1.2s;
-    -webkit-animation-delay: 2.5s;
+    -webkit-animation-delay: 2.3s;
     -webkit-animation-iteration-count: 1;
     -webkit-animation-fill-mode: forwards;
 }
@@ -48,8 +48,8 @@ body {
 	margin: auto;
 	opacity: 0;
     -webkit-animation-name: fadein;
-    -webkit-animation-duration: 2s;
-    -webkit-animation-delay: 3.7s;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-delay: 3.5s;
     -webkit-animation-iteration-count: 1;
     -webkit-animation-fill-mode: forwards;
 }
