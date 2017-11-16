@@ -12,9 +12,9 @@ body, html {
 }
 body {
 	text-align: center;
-	background-color: #f9f9f9; /*
-	background-color: #90a5a1;
-	background: linear-gradient(270deg, #f9f9f9, #90a5a1);*/
+	/*background-color: #f9f9f9;
+	background-color: #efe8f7;
+	background: linear-gradient(270deg, ##f7fafd, #90a5a1);*/
 	font-family: "Renner";
 }
 
@@ -34,6 +34,7 @@ body {
 	height: 100vh;
 	position: absolute;
 	z-index: -10;
+	background: linear-gradient(150deg, #f9f9f9, #efe8f7);
 }
 #about-inner {
 	height: 250px;
