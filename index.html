@@ -6,19 +6,23 @@
 	<meta name="description" content="Jessica Tin's personal website">
 	<meta name="keywords" content="">
 	<meta charset="utf-8">
-	<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
-	<!--<meta name="viewport" content="initial-scale=1, maximum-scale=1">-->
 	<meta name="viewport" content="width=200, initial-scale=1, minimum-scale=1">
 	<link rel="icon" type="image/png" href="logo/favicon.png">
 
 	 <!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 	<!-- jQuery library -->
-	<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
 	<!-- Latest compiled JavaScript -->
 	<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+
+	<!-- Snow from www.schillmania.com/projects/snowstorm -->
+	<!-- <script src="scripts/snowstorm.js"></script> -->
+
 	<!-- Custom stylesheet -->
-	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet"> 
+	<!-- <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">  -->
 	<link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
@@ -28,10 +32,12 @@
 	<div id="box"></div>
 </div>
 
-<div id="about">
-	<div id="about-inner">
+<div id="bg"></div>
+
+<div class="page" id="about">
+	<div class="inner" id="about-inner">
 		<h1> hello, my name is <span id="name">jessica tin</span> </h1>
-		<p id="make"> i make useful + beautiful things. </p>
+		<p id="make"> i make useful + <span id="beauty">beautiful</span> things. </p>
 		<p id="soon"> more content coming soon! in the meantime, my PDF portfolio can be found <a href="Jessica Tin - Portfolio.pdf">here</a>. </p>
 		<ul>
 			<li><a href="http://instagram.com/jsctn" target="_blank">insta.</a></li>
@@ -42,25 +48,62 @@
 	</div>
 	<div class="panel-name" id="photo">photo</div>
 	<div class="panel-name" id="design">design</div>
-	<div id="footer"></div>
+	<div class="footer">
+		<div class="footer-info info-right creds">This website was locally home-grown and hand-crafted by Jessica.</div>
+		<div class="footer-info info-right creds">Fonts used: <a href="http://blog.marsnev.com/2017/03/font-lemonmilk.html" target="_blank">Lemon/Milk</a> + <a href="https://indestructible-type.github.io/Renner.html" target="_blank">Renner*</a></div>
+	</div>
+	<img id="passion" width="350" height="300" src="img/passion.jpg">
+	<img id="frog" width="550" height="200" src="img/frog.jpg">
 </div>
 
-<!--<div id="content" class="container-fluid">
-	<div class="row">
-		<div class="col-md-6 panel">
-			<div class="panel-name" id="photo">photo</div>
-		</div>
-		<div class="col-md-6 panel">
-			<div class="panel-name" id="design">design</div>
+<div class="page" id="design-page">
+	<div class="inner page-inner" id="design-inner">
+		<br>
+		<p>Coming soon!</p>
+	</div>
+	<div class="footer">
+		<div class="nav" id="design-nav">&#60; back</div>
+		<div class="footer-info info-right">
+			<ul>
+				<li><a href="http://instagram.com/jsctn" target="_blank">insta.</a></li>
+				<li><a href="http://instagram.com/by.jsctn" target="_blank">other insta.</a></li>
+				<li><a href="http://linkedin.com/in/jgytin" target="_blank">linkedin.</a></li>
+				<li><a href="mailto:jgytin@berkeley.edu" target="_blank">email.</a></li>
+			</ul>
 		</div>
 	</div>
-</div>-->
-<!--<div id="content">
-	<div class="panel-name" id="photo">photo</div>
-	<div class="panel-name" id="design">design</div>
-</div>-->
+</div>
 
-<div id="stuff"></div>
+<div class="page" id="photo-page">
+	<div class="inner page-inner" id="photo-inner">
+		<div class="page-content" id="photo-content">
+			<img src="img/photo 3-1.jpg" alt="Photo of a long-haired woman wearing a denim coat and posing in front of a psychic reading shop, looking down at the camera with a smirk." />
+			<img src="img/photo 3-2.jpg" alt="Photo of a long-haired woman wearing a white graphic t-shirt and checkered pants, resting on a stool in front of a colorful bookshelf and looking into the distance." />
+			<img src="img/photo 3-3.jpg" alt="Photo of a long-haired woman wearing a beanie, a sweatshirt, and a striped gaucho, sitting on the sidewalk next to an orange construction barrier and gazing into the bright sunset." />
+			<!-- <img src="img/photo 3-4.jpg" alt="Photo of a woman's hand putting her gold smartphone into the inner pocker of her denim coat, with an emphasis on her white graphic t-shirt, her gold jewelry, and the detailing of her coat." /> -->
+			<p>shoot for Constantt clothing line, august 2017</p>
+			<img src="img/photo 2-2.jpg" alt="" />
+			<img src="img/photo 2-3.jpg" alt="" />
+			<p>shoot for Fashion and Student Trends (FAST), september 2017 </p>
+		 	<img src="img/photo 1-4.jpg" alt="" />
+			<img src="img/photo 1-5.jpg" alt="" />
+			<img src="img/photo 1-6.jpg" alt="" />
+			<p>portraits of my friends, ongoing</p>
+			<img src="" alt="" />
+		</div>
+	</div>
+	<div class="footer">
+		<div class="nav" id="photo-nav">back &#62;</div>
+		<div class="footer-info info-left">
+			<ul>
+				<li><a href="http://instagram.com/jsctn" target="_blank">insta.</a></li>
+				<li><a href="http://instagram.com/by.jsctn" target="_blank">other insta.</a></li>
+				<li><a href="http://linkedin.com/in/jgytin" target="_blank">linkedin.</a></li>
+				<li><a href="mailto:jgytin@berkeley.edu" target="_blank">email.</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
 
 </body>
 
@@ -79,20 +122,47 @@
 	}
 	ocean.appendChild(docFrag);
 
-	/*
-	var ocean2 = document.getElementById("stuff"),
-	    waveWidth2 = 8,
-	    waveCount2 = Math.floor(window.innerHeight/waveWidth2),
-	    docFrag2 = document.createDocumentFragment();
-	for(var j = 0; j < waveCount2; j++){
-	  var wave2 = document.createElement("div");
-	  wave2.className += " wave2";
-	  docFrag2.appendChild(wave2);
-	  wave2.style.top = j * waveWidth2 + "px";
-	  wave2.style.webkitAnimationDelay = (j/100) + "s";
+	function slideLeft() {
+		$(".page").animate({
+			// left: "-="+window.innerWidth
+			left: "-=100%"
+		}, 1200)
 	}
-	ocean2.appendChild(docFrag2);
-	*/
+
+	function slideRight() {
+		$(".page").animate({
+			// left: "-="+window.innerWidth
+			left: "+=100%"
+		}, 1200)
+	}
+
+	if (window.innerWidth < 478) {
+		$(".footer-info").css("display","none");
+	}
+
+	// change pseudo-pages
+	$("#design").click(slideLeft);
+	$("#design-nav").click(slideRight);
+	$("#photo").click(slideRight);
+	$("#photo-nav").click(slideLeft);
+
+	$("#beauty").click(function () {
+		$("*").css("font-family", "Comic Sans MS, cursive");
+		$("#name").css("text-shadow","none");
+		$("#name").css("color","red");
+		$("#name").css("font-weight","bold");
+		// $("#bg").css("background","url('img/passion.jpg') no-repeat");
+		$("#bg").css("background","aqua");
+		// $("#bg").css("background-position","left top");
+		// $("#bg").css("background-size","400px 300px");
+		$(".footer").css("background-color","fuchsia");
+		$("#passion").css("opacity","1");
+		$("#frog").css("opacity","1");
+		$(".nav").css("background","none");
+		$(".nav").css("font-weight","bold");
+		$(".panel-name").css("font-weight","bold");
+	})
+
 </script>
 
 </html>
