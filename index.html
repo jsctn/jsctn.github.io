@@ -119,7 +119,7 @@
 </body>
 
 <script type="text/javascript">
-	var visited = localStorage.getItem("visited");
+	var visited = sessionStorage.getItem("visited-jsctn");
 	if (visited) {
 		$("#loading").css("display","none");
 		$("#about-inner").css("-webkit-animation-delay","0s");
@@ -128,7 +128,7 @@
 		$(".creds").css("opacity","1");
 		$(".panel-name").css("opacity","1");
 	} else {
-		localStorage.setItem("visited", "true");
+		sessionStorage.setItem("visited-jsctn", "true");
 	}
 	// make some waves.
 	var ocean = document.getElementById("box"),
