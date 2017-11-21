@@ -347,21 +347,17 @@ li {
 @-webkit-keyframes text-expand {
     0% {
     	font-size: 48pt;
-    	opacity: 1;
     }
     100% {
     	font-size: 52pt;
-    	opacity: 1;
     }
 }
 @-webkit-keyframes text-shrink {
     0% {
     	font-size: 52pt;
-    	opacity: 1;
     }
     100% {
     	font-size: 48pt;
-    	opacity: 1;
     }
 }
 
