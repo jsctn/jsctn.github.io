@@ -169,7 +169,7 @@ li {
 	margin: 40px 15px;
 	z-index: -5;
 }
-.footer-info a, a:visited, a:hover {
+.footer-info a, .footer-info a:visited, .footer-info a:hover {
 	background: none;
 }
 .info-left {
@@ -347,17 +347,21 @@ li {
 @-webkit-keyframes text-expand {
     0% {
     	font-size: 48pt;
+    	opacity: 1;
     }
     100% {
     	font-size: 52pt;
+    	opacity: 1;
     }
 }
 @-webkit-keyframes text-shrink {
     0% {
     	font-size: 52pt;
+    	opacity: 1;
     }
     100% {
     	font-size: 48pt;
+    	opacity: 1;
     }
 }
 
