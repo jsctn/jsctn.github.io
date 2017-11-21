@@ -16,13 +16,9 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
 	<!-- Latest compiled JavaScript -->
-	<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
-
-	<!-- Snow from www.schillmania.com/projects/snowstorm -->
-	<!-- <script src="scripts/snowstorm.js"></script> -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 	<!-- Custom stylesheet -->
-	<!-- <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">  -->
 	<link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
@@ -33,6 +29,8 @@
 </div>
 
 <div id="bg"></div>
+<div id="bg-photo"></div>
+<div id="bg-design"></div>
 
 <div class="page" id="about">
 	<div class="inner" id="about-inner">
@@ -43,7 +41,7 @@
 			<li><a href="http://instagram.com/jsctn" target="_blank">insta.</a></li>
 			<li><a href="http://instagram.com/by.jsctn" target="_blank">other insta.</a></li>
 			<li><a href="http://linkedin.com/in/jgytin" target="_blank">linkedin.</a></li>
-			<li><a href="mailto:jgytin@berkeley.edu" target="_blank">email.</a></li>
+			<li><a href="">email.</a></li>
 		</ul>
 	</div>
 	<div class="panel-name" id="photo">photo</div>
@@ -68,7 +66,7 @@
 				<li><a href="http://instagram.com/jsctn" target="_blank">insta.</a></li>
 				<li><a href="http://instagram.com/by.jsctn" target="_blank">other insta.</a></li>
 				<li><a href="http://linkedin.com/in/jgytin" target="_blank">linkedin.</a></li>
-				<li><a href="mailto:jgytin@berkeley.edu" target="_blank">email.</a></li>
+				<li><a href="">email.</a></li>
 			</ul>
 		</div>
 	</div>
@@ -77,19 +75,32 @@
 <div class="page" id="photo-page">
 	<div class="inner page-inner" id="photo-inner">
 		<div class="page-content" id="photo-content">
-			<img src="img/photo 3-1.jpg" alt="Photo of a long-haired woman wearing a denim coat and posing in front of a psychic reading shop, looking down at the camera with a smirk." />
-			<img src="img/photo 3-2.jpg" alt="Photo of a long-haired woman wearing a white graphic t-shirt and checkered pants, resting on a stool in front of a colorful bookshelf and looking into the distance." />
+
 			<img src="img/photo 3-3.jpg" alt="Photo of a long-haired woman wearing a beanie, a sweatshirt, and a striped gaucho, sitting on the sidewalk next to an orange construction barrier and gazing into the bright sunset." />
-			<!-- <img src="img/photo 3-4.jpg" alt="Photo of a woman's hand putting her gold smartphone into the inner pocker of her denim coat, with an emphasis on her white graphic t-shirt, her gold jewelry, and the detailing of her coat." /> -->
+			<!-- <img src="img/photo 3-1.jpg" alt="Photo of a long-haired woman wearing a denim coat and posing in front of a psychic reading shop, looking down at the camera with a smirk." /> -->
+			<img src="img/photo 3-2.jpg" alt="Photo of a long-haired woman wearing a white graphic t-shirt and checkered pants, resting on a stool in front of a colorful bookshelf and looking into the distance." />
+			<img src="img/photo 3-4.jpg" alt="Photo of a woman's hand putting her gold smartphone into the inner pocker of her denim coat, with an emphasis on her white graphic t-shirt, her gold jewelry, and the detailing of her coat." />
+
 			<p>shoot for Constantt clothing line, august 2017</p>
+
 			<img src="img/photo 2-2.jpg" alt="" />
 			<img src="img/photo 2-3.jpg" alt="" />
+
 			<p>shoot for Fashion and Student Trends (FAST), september 2017 </p>
+
 		 	<img src="img/photo 1-4.jpg" alt="" />
 			<img src="img/photo 1-5.jpg" alt="" />
 			<img src="img/photo 1-6.jpg" alt="" />
+
 			<p>portraits of my friends, ongoing</p>
-			<img src="" alt="" />
+			<img src="img/photo 4-2.jpg" alt="" /> <br>
+			<img src="img/photo 4-3.jpg" alt="" />
+
+			<p>graduation photoshoot, april 2017</p>
+
+		 	<img src="img/photo 4-1.jpg" alt="" />
+
+			<p>thanks for stopping by! if you're interested in a shoot, please send me a message at jgytin[at]berkeley.edu </p>
 		</div>
 	</div>
 	<div class="footer">
@@ -99,7 +110,7 @@
 				<li><a href="http://instagram.com/jsctn" target="_blank">insta.</a></li>
 				<li><a href="http://instagram.com/by.jsctn" target="_blank">other insta.</a></li>
 				<li><a href="http://linkedin.com/in/jgytin" target="_blank">linkedin.</a></li>
-				<li><a href="mailto:jgytin@berkeley.edu" target="_blank">email.</a></li>
+				<li><a href="">email.</a></li>
 			</ul>
 		</div>
 	</div>
@@ -108,6 +119,17 @@
 </body>
 
 <script type="text/javascript">
+	var visited = localStorage.getItem("visited");
+	if (visited) {
+		$("#loading").css("display","none");
+		$("#about-inner").css("-webkit-animation-delay","0s");
+		$(".creds").css("-webkit-animation","none");
+		$(".panel-name").css("-webkit-animation","none");
+		$(".creds").css("opacity","1");
+		$(".panel-name").css("opacity","1");
+	} else {
+		localStorage.setItem("visited", "true");
+	}
 	// make some waves.
 	var ocean = document.getElementById("box"),
 	    waveWidth = 5,
@@ -126,14 +148,14 @@
 		$(".page").animate({
 			// left: "-="+window.innerWidth
 			left: "-=100%"
-		}, 1200)
+		}, 1800)
 	}
 
 	function slideRight() {
 		$(".page").animate({
 			// left: "-="+window.innerWidth
 			left: "+=100%"
-		}, 1200)
+		}, 1800)
 	}
 
 	if (window.innerWidth < 478) {
@@ -142,8 +164,20 @@
 
 	// change pseudo-pages
 	$("#design").click(slideLeft);
+	$("#design").click(function () {
+		$("#bg-design").css("-webkit-animation-name","expand")
+		$("#bg-design").css("-webkit-animation-duration","1s")
+		$("#bg-design").css("-webkit-animation-fill-mode","forwards")
+		$("#bg-design").css("-webkit-animation-iteration-count","1")
+	});
 	$("#design-nav").click(slideRight);
 	$("#photo").click(slideRight);
+	$("#photo").click(function () {
+		$("#bg-photo").css("-webkit-animation-name","expand")
+		$("#bg-photo").css("-webkit-animation-duration","1s")
+		$("#bg-photo").css("-webkit-animation-fill-mode","forwards")
+		$("#bg-photo").css("-webkit-animation-iteration-count","1")
+	});
 	$("#photo-nav").click(slideLeft);
 
 	$("#beauty").click(function () {
@@ -162,6 +196,60 @@
 		$(".nav").css("font-weight","bold");
 		$(".panel-name").css("font-weight","bold");
 	})
+
+	$("#photo").hover(function () {
+		$("#bg-photo").css("background-image","url('img/bg 4.jpg'")
+		$("#bg-photo").css("background-repeat","no-repeat")
+		$("#bg-photo").css("background-position","left bottom")
+		$("#bg-photo").css("background-size","cover")
+
+		$("#bg-photo").css("-webkit-animation-name","shrink")
+		$("#bg-photo").css("-webkit-animation-duration","0.8s")
+		$("#bg-photo").css("-webkit-animation-fill-mode","forwards")
+		$("#bg-photo").css("-webkit-animation-iteration-count","1")
+
+		$("#photo").css("-webkit-animation-name","text-expand")
+		$("#photo").css("-webkit-animation-duration","0.3s")
+		$("#photo").css("-webkit-animation-fill-mode","forwards")
+		$("#photo").css("-webkit-animation-iteration-count","1")
+	}, function () {
+		$("#bg-photo").css("-webkit-animation-name","expand")
+		$("#bg-photo").css("-webkit-animation-duration","0.8s")
+		$("#bg-photo").css("-webkit-animation-fill-mode","forwards")
+		$("#bg-photo").css("-webkit-animation-iteration-count","1")
+
+		$("#photo").css("-webkit-animation-name","text-shrink")
+		$("#photo").css("-webkit-animation-duration","0.3s")
+		$("#photo").css("-webkit-animation-fill-mode","forwards")
+		$("#photo").css("-webkit-animation-iteration-count","1")
+	});
+
+	$("#design").hover(function () {
+		$("#bg-design").css("background-image","url('img/bg 5.png'")
+		$("#bg-design").css("background-repeat","tile")
+		$("#bg-design").css("background-position","right top")
+		$("#bg-design").css("background-size","50%")
+
+		$("#bg-design").css("-webkit-animation-name","shrink")
+		$("#bg-design").css("-webkit-animation-duration","0.8s")
+		$("#bg-design").css("-webkit-animation-fill-mode","forwards")
+		$("#bg-design").css("-webkit-animation-iteration-count","1")
+
+		$("#design").css("-webkit-animation-name","text-expand")
+		$("#design").css("-webkit-animation-duration","0.3s")
+		$("#design").css("-webkit-animation-fill-mode","forwards")
+		$("#design").css("-webkit-animation-iteration-count","1")
+	}, function () {
+		$("#bg-design").css("-webkit-animation-name","expand")
+		$("#bg-design").css("-webkit-animation-duration","0.8s")
+		$("#bg-design").css("-webkit-animation-fill-mode","forwards")
+		$("#bg-design").css("-webkit-animation-iteration-count","1")
+
+		$("#design").css("-webkit-animation-name","text-shrink")
+		$("#design").css("-webkit-animation-duration","0.3s")
+		$("#design").css("-webkit-animation-fill-mode","forwards")
+		$("#design").css("-webkit-animation-iteration-count","1")
+	});
 
 </script>
 
