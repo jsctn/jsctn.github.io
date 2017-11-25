@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 
-	<title> JSCTN. made by Jessica Tin</title>
+	<title> PHOTO. made by Jessica Tin</title>
 	<meta name="description" content="Jessica Tin's personal website">
 	<meta name="keywords" content="">
 	<meta charset="utf-8">
@@ -24,61 +24,13 @@
 </head>
 <body>
 
-<div id="loading">
-	<div id="box"></div>
-</div>
-
-<div id="bg"></div>
-<div id="bg-photo"></div>
-<div id="bg-design"></div>
-
-<div class="page" id="about">
-	<div class="inner" id="about-inner">
-		<h1> hello, my name is <span id="name">jessica tin</span> </h1>
-		<p id="make"> i make useful + <span id="beauty">beautiful</span> things. </p>
-		<p id="soon"> more content coming soon! in the meantime, my PDF portfolio can be found <a href="Jessica Tin - Portfolio.pdf">here</a>. </p>
-		<ul>
-			<li><a href="http://instagram.com/jsctn" target="_blank">insta.</a></li>
-			<li><a href="http://instagram.com/by.jsctn" target="_blank">other insta.</a></li>
-			<li><a href="http://linkedin.com/in/jgytin" target="_blank">linkedin.</a></li>
-			<li><a href="">email.</a></li>
-		</ul>
-	</div>
-	<div class="panel-name" id="photo">photo</div>
-	<div class="panel-name" id="design">design</div>
-	<div class="footer">
-		<div class="footer-info info-right creds">This website was locally home-grown and hand-crafted by Jessica.</div>
-		<div class="footer-info info-right creds">Fonts used: <a href="http://blog.marsnev.com/2017/03/font-lemonmilk.html" target="_blank">Lemon/Milk</a> + <a href="https://indestructible-type.github.io/Renner.html" target="_blank">Renner*</a></div>
-	</div>
-	<img id="passion" width="350" height="300" src="img/passion.jpg">
-	<img id="frog" width="550" height="200" src="img/frog.jpg">
-</div>
-
-<!-- <div class="page" id="design-page">
-	<div class="inner page-inner" id="design-inner"> <div class="container-fluid">
-		<div class="row">
-
-		</div>
-	</div> </div>
-	<div class="footer">
-		<div class="nav" id="design-nav">&#60; back</div>
-		<div class="footer-info info-right">
-			<ul>
-				<li><a href="http://instagram.com/jsctn" target="_blank">insta.</a></li>
-				<li><a href="http://instagram.com/by.jsctn" target="_blank">other insta.</a></li>
-				<li><a href="http://linkedin.com/in/jgytin" target="_blank">linkedin.</a></li>
-				<li><a href="">email.</a></li>
-			</ul>
-		</div>
-	</div>
-</div> -->
-
-<!-- <div class="page" id="photo-page">
+<div class="page" id="photo-page">
 	<div class="inner page-inner" id="photo-inner">
 		<div class="page-content" id="photo-content"> <div class="container-fluid">
 
 			<div class="row">
 				<div class="col-md-4"><img src="img/photo 3-3.jpg" alt="Photo of a long-haired woman wearing a beanie, a sweatshirt, and a striped gaucho, sitting on the sidewalk next to an orange construction barrier and gazing into the bright sunset." /></div>
+				<!-- <img src="img/photo 3-1.jpg" alt="Photo of a long-haired woman wearing a denim coat and posing in front of a psychic reading shop, looking down at the camera with a smirk." /> -->
 				<div class="col-md-4"><img src="img/photo 3-2.jpg" alt="Photo of a long-haired woman wearing a white graphic t-shirt and checkered pants, resting on a stool in front of a colorful bookshelf and looking into the distance." /></div>
 				<div class="col-md-4"><img src="img/photo 3-4.jpg" alt="Photo of a woman's hand putting her gold smartphone into the inner pocker of her denim coat, with an emphasis on her white graphic t-shirt, her gold jewelry, and the detailing of her coat." /></div>
 			</div>
@@ -124,43 +76,10 @@
 			</ul>
 		</div>
 	</div>
-</div> -->
+</div>
 
 </body>
 
 <script type="text/javascript" src="scripts/script.js"></script>
-
-<script type="text/javascript">
-	var visited = sessionStorage.getItem("visited-jsctn");
-	if (visited) {
-		$("#loading").css("display","none");
-		$("#about-inner").css("-webkit-animation-delay","0s");
-		$(".creds").css("-webkit-animation","none");
-		$(".panel-name").css("-webkit-animation","none");
-		$(".creds").css("opacity","1");
-		$(".panel-name").css("opacity","1");
-	} else {
-		sessionStorage.setItem("visited-jsctn", "true");
-	}
-	// make some waves.
-	var ocean = document.getElementById("box"),
-	    waveWidth = 5,
-	    waveCount = Math.floor(300/waveWidth),
-	    docFrag = document.createDocumentFragment();
-	for(var i = 0; i < waveCount; i++){
-	  var wave = document.createElement("div");
-	  wave.className += " wave";
-	  docFrag.appendChild(wave);
-	  wave.style.left = i * waveWidth + "px";
-	  wave.style.webkitAnimationDelay = (i/100) + "s";
-	}
-	ocean.appendChild(docFrag);
-
-	if (window.innerWidth < 478) {
-		$(".footer-info").css("display","none");
-	}
-
-
-</script>
 
 </html>
