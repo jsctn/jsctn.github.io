@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- <title>𝒉𝒐𝒎𝒆, 𝒃𝒓𝒊𝒆𝒇𝒍𝒚</title> -->
+    <title>𝒔𝒉𝒐𝒓𝒕𝒍𝒚, 𝒃𝒓𝒊𝒆𝒇𝒍𝒚</title>
+    <style type="text/css">
+    html, body {
+      margin: 0;
+      height: 0;
+      min-width: 100%;
+      min-height: 100%;
+    }
+    body {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+    a, a:visited {
+      color: blue;
+    }
+    a:hover {
+      text-decoration: none;
+    }
+    body::-webkit-scrollbar, body::-webkit-scrollbar-track, body::-webkit-scrollbar-thumb, div::-webkit-scrollbar, div::-webkit-scrollbar-track, div::-webkit-scrollbar-thumb {
+      background: white;
+      border: 1px solid black;
+    }
+
+    #main {
+      width: 1000px;
+      min-height: 100%;
+      margin: 0 auto;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    #main > div {
+      display: none;
+      width: 1000px;
+    }
+    #main > div.active {
+      display: block;
+    }
+    #main > div img {
+      pointer-events: none;
+    }
+    #nav {
+      position: fixed;
+      top: 8px;
+      left: 8px;
+      font-size: 0.8em;
+      z-index: 1000;
+    }
+    #nav a {
+      color: darkgray;
+    }
+
+    .label {
+      border: 1px solid black;
+      background: white;
+      position: absolute;
+      text-align: left;
+    }
+    .label > * {
+      margin: 12px 16px;
+    }
+    .spot {
+      position: absolute;
+      border-radius: 100%;
+    }
+    a:hover .spot, a:focus .spot {
+      border: 1px solid blue;
+    }
+    .spot--cyan {
+      background: cyan;
+    }
+    .spot--pink {
+      background: fuchsia;
+    }
+    .spot--green {
+      background: lime;
+    }
+
+    .chat {
+      position: absolute;
+      border: 1px solid black;
+      background: rgba(0, 0, 0, 0.6);
+      width: 360px;
+      height: 180px;
+      padding: 12px 8px 24px 16px;
+      overflow-y: auto;
+      font-family: sans-serif;
+      font-size: 0.87em;
+    }
+    .chat > hr {
+      margin: 20px 0;
+    }
+    .chat > div {
+      display: flex;
+      flex-direction: column;  
+      margin: 16px 0;      
+    }
+    .chat > div:nth-of-type(2n) {
+      align-items: flex-start;
+    }
+    .chat > div:nth-of-type(2n+1) {
+      align-items: flex-end;
+    }
+    .chat--pink > div:nth-of-type(2n+1) > p {
+      background-color: fuchsia;
+      color: white;
+    }
+    .chat--cyan > div:nth-of-type(2n+1) > p {
+      background-color: cyan;
+    }
+    .chat--green > div:nth-of-type(2n+1) > p {
+      background-color: lime;
+    }
+    .chat > div:nth-of-type(2n+1) a {
+      color: blue;
+    }
+    .chat--pink > div:nth-of-type(2n+1) a {
+      color: lightcyan;
+    }
+    .chat > div > p {
+      width: 220px;
+      max-width: max-content;
+      padding: 6px 8px;
+      background-color: white;
+      border-radius: 16px;
+      margin: 1px;
+      text-align: left;
+    }
+
+    /***** page-specific styling *****/
+
+    #plane img, #end img {
+      height: 90vh;
+    }
+    #plane .label {
+      width: 500px;
+      bottom: 12vh;
+      left: 40vh;
+    }
+    #plane h1 {
+      position: absolute;
+      color: white;
+      font-style: italic;
+      padding-left: 18px;
+    }
+    #bus .chat {
+      top: 50%;
+      left: 50%;
+    }
+    div#room, div#nap, div#home, div#meet, div#final2 {
+      min-height: 100%;
+    }
+    #room img, #nap img, #home img, #meet1 img, #final1 img, #final2 img {
+      position: absolute;
+      bottom: 0;
+      height: 100%;
+      margin: 0 auto;
+      left: 0;
+      right: 0;
+    }
+    #room .label, #nap .label {
+      width: 500px;
+      left: 2%;
+      bottom: 6%;
+    }
+    #room .spot {
+      height: 28vh;
+      width: 28vh;
+      top: calc(48vh - 14vh);
+      left: calc(528px - 14vh);
+    }
+    #nap .label {
+      width: 400px;
+      left: 2%;
+      bottom: 9%;
+    }
+    #food1 {
+      /*text-align: center;*/
+    }
+    #food1 img {
+      min-height: 49vh
+    }
+    #food1 .label:nth-of-type(1) {
+      top: calc(10%);
+      width: 270px;
+      right: 40px;
+    }
+    #food1 .label:nth-of-type(2) {
+      bottom: calc(20%);
+      width: 270px;
+      right: 40px;
+    }
+    #food2 .label:nth-of-type(1) {
+      width: 400px;
+      right: 0;
+      top: calc(50% - 60px);
+    }
+    #food2 .label:nth-of-type(2) {
+      width: 400px;
+      right: 0;
+      top: calc(50% + 210px);
+    }
+    #home > div, #final1 > div {
+      height: 100vh;
+      width: calc(100vh / 0.7);
+      position: relative;
+      margin: 0 auto;
+    }
+    #homeMeet > .spot {
+      height: 20vh;
+      width: 20vh;
+      bottom: calc(13vh - 10vh);
+      left: calc(29vh - 10vh);
+    }
+    #homeAnime > .spot {
+      height: 22vh;
+      width: 22vh;
+      top: calc(46% - 11vh);
+      right: calc(20% - 11vh);
+    }
+    #homeTrip > .spot {
+      height: 30vh;
+      width: 30vh;
+      top: calc(27% - 15vh);
+      left: calc(45% - 15vh);
+    }
+    #meet1 > div:nth-child(1) {
+      height: 100vh;
+      width: calc(100vh / 0.7);
+      margin: 0 auto;
+    }
+    #meet1 .chat {
+      top: 22%;
+      left: 0;
+      height: 226px;
+    }
+    #meet2 .label {
+      display: inline-block;
+      width: 360px;
+      right: 0;
+    }
+    #nugs {
+      text-align: right;
+    }
+    #nugs .chat {
+      height: 142px;
+      right: 45%;
+      bottom: 20%;
+    }
+    #nugs .chat > div:nth-child(1) {
+      margin: 0;
+    }
+    #nugs .label {
+      left: 5%;
+      top: 20%;
+      width: 420px;
+    }
+    #final1 .spot {
+      height: 26vh;
+      width: 26vh;
+      bottom: 10%;
+      left: 32%;
+    }
+    #final1 .label {
+      width: 400px;
+      top: 5%;
+      right: 0;
+    }
+    #final2 .label {
+      width: 420px;
+      bottom: 4%;
+    }
+    #end {
+      text-align: right;
+    }
+    #end > div {
+      text-align: left;
+      position: absolute;
+      left: 5%;
+      bottom: 10%;
+    }
+    </style>
+  </head>
+  <body>
+    <div id="nav">
+      <!-- hide back button on first page -->
+      <a id="nav-back" href="/" style="display: none">previous</a>
+      <!-- | <a id="nav-info" href="/">info</a> -->
+    </div>
+    <div id="main">
+      <div id="plane">
+        <h1>shortly, briefly</h1>
+        <div class="label">
+          <!-- <h3>home, briefly</h3> -->
+          <p>its been a whirlwind of a trip with my friends for the last three weeks. we've learned each others quirks and habits through and through, but even so i'm not sure they share the mixture of feelings speeding through my mind and swirling in my gut. i'm almost back in hong kong after 15 years, which is longer than many lifetimes and more than half of mine.</p>
+          <p>but no time to ponder this right now, the plane lands and we need to figure out how to <a id="airport" href="/">get out of the airport</a>...</p>
+        </div>
+        <img src="https://dl.dropboxusercontent.com/s/0e1ezjabcb59iw8/arrival-1.gif?dl=0">
+      </div>
+      <div id="bus">
+        <img src="https://dl.dropboxusercontent.com/s/2sfknssr0bgx5xr/arrival-2.gif?dl=0">
+        <img src="https://dl.dropboxusercontent.com/s/vzqk5md76ssrdxc/arrival-3.gif?dl=0">
+        <div class="chat chat--pink">
+          <div><p>Hello, I'm interested in booking for June 15-18! Our flight arrives at noon, so could we check in around 2pm? Thanks in advance!</p></div>
+          <div><p>Yea sure</p></div>
+          <hr>
+          <div><p>Thanks! We are arriving around 2pm today– can I have the address and how to check-in?</p></div>
+          <div><p>Please download your guide book from link: [redacted]</p></div>
+          <div><p><a id="guide" href="/">Thanks again!</a></p></div>
+        </div>
+      </div>
+      <div id="room">
+        <a id="bed" href="/"><div class="spot spot--cyan"></div></a>
+        <img src="https://dl.dropboxusercontent.com/s/3qydd01zvj7up63/room.png?dl=0">
+        <div class="label">
+          <p>after the long bus ride stuck in mongkok traffic (we really should have shelled out the extra dollar for the subway instead) and lugging our suitcases up a flight of threateningly steep stairs, the cozy airbnb is a welcoming sight.</p>
+          <p>i facetime mom to show her i've arrived safely, and i realize that this is her first direct (albeit digital) glimpse at hong kong in 15 years too.</p>
+        </div>
+      </div>
+      <div id="nap">
+        <img src="https://dl.dropboxusercontent.com/s/3qydd01zvj7up63/room.png?dl=0">
+        <div class="label">
+          <p>i call dibs on the sofa bed. we all agree we collectively need a nap before we <a id="napped" href="/">attempt the busy streets again</a>.</p>
+        </div>
+      </div>
+      <div id="food1">
+        <img src="https://dl.dropboxusercontent.com/s/mnvzb5ihsftngmc/first-1.gif?dl=0">
+        <img src="https://dl.dropboxusercontent.com/s/egektkkwrd4jzkm/first-2.gif?dl=0">
+        <div class="label"><p>rested and hungry now, we weave our way through mongkok. the packed sidewalks and alleyways are overwhelming and unfamiliar, but i feel comfortable. the streets read like sentences that i can't recall, but the words were always there.</p></div>
+        <div class="label"><p>an elevator and a few escalators later, <a id="restaurant" title="cw: images of food" href="/">we find our destination</a> tucked in a corner of a non-descript shopping center.</p></div>
+      </div>
+      <div id="food2">
+        <img src="https://dl.dropboxusercontent.com/s/yqvhnmvu6wrjqyv/first-3.gif?dl=0">
+        <img src="https://dl.dropboxusercontent.com/s/grbt2v18lek16nw/first-4.gif?dl=0">
+        <div class="label"><p>it's nearly dusk, and we finally get to eat our first meal since yesterday. i successfully place our orders in cantonese with the jaded part-timer who mumbles some characteristically snide comments under their breath. i find this hilarious, but i decide to skip attempting to translate the nuance into english.</p></div>
+        <div class="label"><p>we are so full! we decide to walk it off, wandering for a while longer in mongkok before heading home, ready for <a id="gohome" href="/">another deep sleep</a>.</p></div>
+      </div>
+      <div id="home">
+        <div>
+          <a id="homeMeet" href="/"><div class="spot spot--cyan"></div></a>
+          <a id="homeAnime" href="/"><div class="spot spot--pink"></div></a>
+          <a id="homeTrip" href="/"><div class="spot spot--green"></div></a>
+          <img src="https://dl.dropboxusercontent.com/s/ki32ega6558c26h/room-alt.png?dl=0">
+        </div>
+      </div>
+      <div id="meet1">
+        <div><img src="https://dl.dropboxusercontent.com/s/ki32ega6558c26h/room-alt.png?dl=0"></div>
+        <div class="chat chat--cyan">
+          <div><p>Hiiiii tomorrow is my last day in hk/asia!</p></div>
+          <div><p>OMG</p></div>
+          <div><p>I gotta leave for the airport at 4pm but wanna get bfast :)</p></div>
+          <div>
+            <p>SHIT DUDE IM LEAVING TOMORROW</p>
+            <p>CAN GET BREAKFAST</p>
+            <p>If ur down for breakfast at like 9</p>
+          </div>
+          <div><p>!!! Am down!!!</p></div>
+          <div><p>OK LETS DO IT</p></div>
+          <div><p><a id="text" href="/">yay!! see yaaa</a></p></div>
+        </div>
+      </div>
+      <div id="meet2">
+        <img src="https://dl.dropboxusercontent.com/s/3xz8mth5xvp8e9x/meet.gif?dl=0">
+        <div class="label">
+          <p>it's my first time during this entire trip being alone. but i feet strangely at ease – it almost feels like just another stroll to the walgreens down the street back home, but more special. i'm floating as i take in the bright morning cityscape.</p> 
+          <p>i find her after fumbling with google maps and some back-and-forth "wait where are you rn" texts. we have a delicious brunch, after putting our heads together to read the chinese menus and get our order in. the waiter yells at me when i try to take a photo of my food, and my friend and i both feel equal parts intimidated and entertained. then all too soon it's time for her flight and we part ways with promises of "you have to come visit us!!" and <a id="meetReturn" href="/">i make my way back</a>.</p>
+        </div>
+      </div>
+      <div id="nugs">
+        <img src="https://dl.dropboxusercontent.com/s/o3qkc6ar6srhunf/nugs.gif?dl=0">
+        <div class="label">
+          <p>for whatever reason we decide to stay in and watch anime, sprawled across the floor and the sofabed. oh, to chill halfway across the world with your friends!</p>
+          <p>then a text from one of them (who had headed out earlier) makes it even better:</p>
+        </div>
+        <div class="chat chat--green">
+          <div></div>
+          <div><p>Hey I'm omw back, do you guys want mickey dees?</p></div>
+          <div><p>UM YES???</p><p>NUGS</p></div>
+          <div><p>LOL okay</p></div>
+          <div><p><a id="animeReturn" href="/">THANK YOU</a></p></div>
+        </div>
+      </div>
+      <div id="trip1">
+        <div class="label">
+          <p><i>oops, this page is still under construction ^^; please check back soon!</i></p>
+          <p><a id="tripReturn" href="/">return home</a></p>
+        </div>
+      </div>
+      <div id="final1">
+        <div>
+          <a id="packing" href="/"><div class="spot spot--green"></div></a>
+          <img src="https://dl.dropboxusercontent.com/s/ki32ega6558c26h/room-alt.png?dl=0">
+          <div class="label">
+            <p>and just like that it's almost time to fly back to america. "america" – i start to recall my feelings 15 years ago when my parents told me we'd be going to "america", but there were lots of tears involved so i put these memories aside for now and start packing.</p>
+          </div>
+        </div>
+      </div>
+      <div id="final2">
+        <img src="https://dl.dropboxusercontent.com/s/3qydd01zvj7up63/room.png?dl=0">
+        <div class="label">
+          <p>hong kong has treated me so well, but maybe i do miss my actual twin bed back home. and target runs, and driving. i can't wait to tell my parents about the snarky waiter and the bus ride and the anime-with-chicken-nuggets.</p>
+          <p>everything is back in its place. we lock the door and drag our luggage back down the scary stairs and head to the airport (<a id="lock" href="/">by taking the subway</a>).</p>
+        </div>
+      </div>
+      <div id="end">
+        <img src="https://dl.dropboxusercontent.com/s/wb787i2g0lz2hfj/depart-1.gif?dl=0">
+        <div>
+          <p><h3>thank you for playing!</h3></p>
+          <p>created by jessica tin during web art jam (March 20-21, 2021)</p>
+          <p><a class="socials" href="https://twitter.com/jsctn" target="_blank">twt</a> | <a class="socials" href="https://instagram.com/jsctn" target="_blank">insta</a> | <a class="socials" href="https://nyanseong.neocities.org" target="_blank">neocities</a></p>
+          <p><a id="again" href="/"><i>play again</i></a></p>
+        </div>
+      </div>
+    </div> <!-- main -->
+    <script type="application/javascript">
+      const pages = new Set(['plane', 'bus', 'room', 'nap', 'food1', 'food2', 'home', 'meet1', 'meet2', 'nugs', 'trip1', 'final1', 'final2', 'end']);
+      const choices = new Set(['homeMeet', 'homeAnime', 'homeTrip']);
+      const linksToHome = new Set(['meetReturn', 'animeReturn', 'tripReturn']);
+      const hidePrev = new Set(['plane', 'final1']);
+      const visited = new Set();
+      let current = 'plane';
+      let prevChoice = 'food1';
+      let hasSeenEnd = false;
+      const links = {
+        airport: 'bus',
+        guide: 'room',
+        bed: 'nap',
+        napped: 'food1',
+        restaurant: 'food2',
+        gohome: 'home',
+        homeMeet: 'meet1',
+        text: 'meet2',
+        meetReturn: 'home',
+        homeAnime: 'nugs',
+        animeReturn: 'home',
+        homeTrip: 'trip1',
+        tripReturn: 'home',
+        packing: 'final2',
+        lock: 'end',
+        again: 'plane',
+      };
+      const backLinks = {
+        plane: 'end',
+        bus: 'plane',
+        room: 'bus',
+        nap: 'room',
+        food1: 'nap',
+        food2: 'food1',
+        home: 'food2',
+        meet1: 'home',
+        meet2: 'meet1',
+        nugs: 'home',
+        trip1: 'home',
+        final2: 'final1',
+        end: 'final2',
+      };
+      const choiceLinks = {
+        meet: 'homeMeet',
+        nugs: 'homeAnime',
+        trip1: 'homeTrip',
+      }
+
+      // check for query param
+      const href = window.location.href;
+      const queryKey = 'jumpTo=';
+      const queryIndex = href.indexOf(queryKey);
+      let queryValue = '';
+      if (queryIndex >= 0) queryValue = href.substring(queryIndex + queryKey.length, href.length).trim();
+      current = pages.has(queryValue) ? queryValue : current;
+
+      // show active
+      showPage(current);
+
+      function showPage(next) {
+        if (!pages.has(next)) {
+          console.log(`huh "${next}" doesnt exist`);
+          return;
+        }
+        // hide back button on first page
+        // TODO: hiding this for now due to complex back-home logic
+        if (next === 'plane' && !hasSeenEnd) document.getElementById('nav-back').style.display = 'none';
+        else if (next === 'final1') document.getElementById('nav-back').style.display = 'none';
+        else document.getElementById('nav-back').style.display = 'block';
+
+        // hide whatever is currently active
+        [...document.getElementsByClassName('active')].forEach((active) => active.className = '');
+
+        // show the new page
+        document.getElementById(next).className = 'active';
+
+        // reset any scrolled chats (not working fml)
+        [...document.getElementById(current).getElementsByClassName('chat')].forEach((chat) => chat.scrollTop = 0);
+
+        // update state
+        current = next;
+
+        if (next === 'end') hasSeenEnd = true;
+      }
+
+      function handleLink(linkId) {
+        if (choices.has(linkId)) {
+          document.getElementById(linkId).style.display = 'none';
+          visited.add(links[linkId]);
+        }
+        let next = linkId === 'nav-back' ? backLinks[current] : links[linkId];
+        if (linksToHome.has(linkId)) {
+          // if all options have been visited, it's time to go home!
+          if (visited.size === choices.size) next = 'final1';
+        }
+        showPage(next);
+      }
+
+      // event listeners for link clicks
+      [...document.getElementsByTagName('a')].forEach((link) => {
+        link.addEventListener('click', (e) => {
+          if (link.className === 'socials') return;
+          e.preventDefault();
+          handleLink(link.id);
+        });
+      });
+
+      // keyboard events: enter (13)
+      document.onkeydown = (e) => {
+        if (e.keyCode === 13 && document.activeElement) {
+          if (document.activeElement.className === 'socials') return;
+          e.preventDefault();
+          handleLink(document.activeElement.id);
+        }
+      };
+    </script>
+  </body>
+</html>
