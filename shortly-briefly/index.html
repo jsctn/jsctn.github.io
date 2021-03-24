@@ -28,6 +28,22 @@
       border: 1px solid black;
     }
 
+    #loading {
+      position: fixed;
+      height: 100%;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.8);
+      top: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
+      z-index: 2000;
+    }
+    #loading h1 {
+      font-style: italic;
+      margin: 0 auto;
+    }
+
     #main {
       width: 1000px;
       min-height: 100%;
@@ -174,7 +190,7 @@
       height: 28vh;
       width: 28vh;
       top: calc(48vh - 14vh);
-      left: calc(528px - 14vh);
+      left: 47%;
     }
     #nap .label {
       width: 400px;
@@ -287,6 +303,11 @@
       bottom: 10%;
     }
     </style>
+    <script type="text/javascript">
+      function handleFirstLoaded() {
+        document.getElementById('loading').style.display = 'none';
+      }
+    </script>
   </head>
   <body>
     <div id="nav">
@@ -294,6 +315,7 @@
       <a id="nav-back" href="/" style="display: none">previous</a>
       <!-- | <a id="nav-info" href="/">info</a> -->
     </div>
+    <div id="loading"><h1>loading...</h1></div>
     <div id="main">
       <div id="plane">
         <h1>shortly, briefly</h1>
@@ -302,11 +324,11 @@
           <p>its been a whirlwind of a trip with my friends for the last three weeks. we've learned each others quirks and habits through and through, but even so i'm not sure they share the mixture of feelings speeding through my mind and swirling in my gut. i'm almost back in hong kong after 15 years, which is longer than many lifetimes and more than half of mine.</p>
           <p>but no time to ponder this right now, the plane lands and we need to figure out how to <a id="airport" href="/">get out of the airport</a>...</p>
         </div>
-        <img src="https://dl.dropboxusercontent.com/s/0e1ezjabcb59iw8/arrival-1.gif?dl=0">
+        <img onload="handleFirstLoaded()" src="https://dl.dropboxusercontent.com/s/0e1ezjabcb59iw8/arrival-1.gif?dl=0">
       </div>
       <div id="bus">
-        <img src="https://dl.dropboxusercontent.com/s/2sfknssr0bgx5xr/arrival-2.gif?dl=0">
-        <img src="https://dl.dropboxusercontent.com/s/vzqk5md76ssrdxc/arrival-3.gif?dl=0">
+        <img id="bus-1" data-src="https://dl.dropboxusercontent.com/s/2sfknssr0bgx5xr/arrival-2.gif?dl=0">
+        <img id="bus-2" data-src="https://dl.dropboxusercontent.com/s/vzqk5md76ssrdxc/arrival-3.gif?dl=0">
         <div class="chat chat--pink">
           <div><p>Hello, I'm interested in booking for June 15-18! Our flight arrives at noon, so could we check in around 2pm? Thanks in advance!</p></div>
           <div><p>Yea sure</p></div>
@@ -318,27 +340,27 @@
       </div>
       <div id="room">
         <a id="bed" href="/"><div class="spot spot--cyan"></div></a>
-        <img src="https://dl.dropboxusercontent.com/s/3qydd01zvj7up63/room.png?dl=0">
+        <img id="room-img" data-src="https://dl.dropboxusercontent.com/s/3qydd01zvj7up63/room.png?dl=0">
         <div class="label">
           <p>after the looong bus ride stuck in mongkok traffic (we really should've shelled out the extra dollar for the subway instead) and lugging our suitcases up a threateningly steep flight of stairs, the cozy airbnb is a welcoming sight.</p>
           <p>i facetime my parents to show them i've arrived safely and give them a house tour. i realize this is their first direct (albeit digital) glimpse at hong kong in 15 years too.</p>
         </div>
       </div>
       <div id="nap">
-        <img src="https://dl.dropboxusercontent.com/s/3qydd01zvj7up63/room.png?dl=0">
+        <img id="nap-img" data-src="https://dl.dropboxusercontent.com/s/3qydd01zvj7up63/room.png?dl=0">
         <div class="label">
           <p>i call dibs on the sofabed. we all agree we collectively need a nap before we <a id="napped" href="/">attempt the busy streets again</a>.</p>
         </div>
       </div>
       <div id="food1">
-        <img src="https://dl.dropboxusercontent.com/s/mnvzb5ihsftngmc/first-1.gif?dl=0">
-        <img src="https://dl.dropboxusercontent.com/s/egektkkwrd4jzkm/first-2.gif?dl=0">
+        <img id="food1-1" data-src="https://dl.dropboxusercontent.com/s/mnvzb5ihsftngmc/first-1.gif?dl=0">
+        <img id="food1-2" data-src="https://dl.dropboxusercontent.com/s/egektkkwrd4jzkm/first-2.gif?dl=0">
         <div class="label"><p>rested and hungry now, we weave our way through mongkok. the packed sidewalks and alleyways are overwhelming and unfamiliar, but i feel comfortable. the streets read like sentences that i can't recall, but the words were always there.</p></div>
         <div class="label"><p>an elevator and a few escalators later, <a id="restaurant" title="cw: images of food" href="/">we find our destination</a> tucked in a corner of a non-descript shopping center.</p></div>
       </div>
       <div id="food2">
-        <img src="https://dl.dropboxusercontent.com/s/yqvhnmvu6wrjqyv/first-3.gif?dl=0">
-        <img src="https://dl.dropboxusercontent.com/s/grbt2v18lek16nw/first-4.gif?dl=0">
+        <img id="food2-1" data-src="https://dl.dropboxusercontent.com/s/yqvhnmvu6wrjqyv/first-3.gif?dl=0">
+        <img id="food2-2" data-src="https://dl.dropboxusercontent.com/s/grbt2v18lek16nw/first-4.gif?dl=0">
         <div class="label"><p>it's nearly dusk, and we finally get to eat our first meal since yesterday. i successfully place our orders in cantonese with the jaded part-timer who mutters some characteristically snide comments under their breath. i find this hilarious, but i decide to skip attempting to translate the nuance into english.</p></div>
         <div class="label"><p>we are so full! we decide to walk it off, wandering for a while longer in mongkok before heading home, ready for <a id="gohome" href="/">another deep sleep</a>.</p></div>
       </div>
@@ -347,11 +369,11 @@
           <a id="homeMeet" href="/"><div class="spot spot--cyan"></div></a>
           <a id="homeAnime" title="cw: image of food" href="/"><div class="spot spot--pink"></div></a>
           <a id="homeTrip" href="/"><div class="spot spot--green"></div></a>
-          <img src="https://dl.dropboxusercontent.com/s/ki32ega6558c26h/room-alt.png?dl=0">
+          <img id="home-img" data-src="https://dl.dropboxusercontent.com/s/ki32ega6558c26h/room-alt.png?dl=0">
         </div>
       </div>
       <div id="meet1">
-        <div><img src="https://dl.dropboxusercontent.com/s/ki32ega6558c26h/room-alt.png?dl=0"></div>
+        <div><img id="meet1-img" data-src="https://dl.dropboxusercontent.com/s/ki32ega6558c26h/room-alt.png?dl=0"></div>
         <div class="chat chat--cyan">
           <div><p>Hiiiii tomorrow is my last day in hk/asia!</p></div>
           <div><p>OMG</p></div>
@@ -367,14 +389,14 @@
         </div>
       </div>
       <div id="meet2">
-        <img src="https://dl.dropboxusercontent.com/s/3xz8mth5xvp8e9x/meet.gif?dl=0">
+        <img id="meet2-img" data-src="https://dl.dropboxusercontent.com/s/3xz8mth5xvp8e9x/meet.gif?dl=0">
         <div class="label">
           <p>it's my first time during this entire trip being alone. but i feel strangely at ease – it almost feels like just another stroll to the walgreens down the street back home, but more special. i'm floating as i take in the bright morning cityscape.</p>
           <p>i find her after fumbling with google maps and some back-and-forth "wait where are you rn" texts. we have a delicious brunch, after putting our heads together to read the chinese menus and get our order in. the waiter yells at me when i try to take a photo of my food, and my friend and i both feel equal parts intimidated and entertained. then all too soon it's time for her flight and we part ways with promises of "you have to come visit us!!" and <a id="meetReturn" href="/">i make my way back</a>.</p>
         </div>
       </div>
       <div id="nugs">
-        <img src="https://dl.dropboxusercontent.com/s/o3qkc6ar6srhunf/nugs.gif?dl=0">
+        <img id="nugs-img" data-src="https://dl.dropboxusercontent.com/s/o3qkc6ar6srhunf/nugs.gif?dl=0">
         <div class="label">
           <p>for whatever reason we decide to stay in and watch anime, sprawled across the floor and the sofabed. oh, to chill halfway across the world with your friends!</p>
           <p>then a text from one of them (who had headed out earlier) makes it even better:</p>
@@ -396,21 +418,21 @@
       <div id="final1">
         <div>
           <a id="packing" href="/"><div class="spot spot--green"></div></a>
-          <img src="https://dl.dropboxusercontent.com/s/ki32ega6558c26h/room-alt.png?dl=0">
+          <img id="final1-img" data-src="https://dl.dropboxusercontent.com/s/ki32ega6558c26h/room-alt.png?dl=0">
           <div class="label">
             <p>and just like that it's almost time to fly back to america. "america" – i start to recall my feelings 15 years ago when my parents told me we'd be going to "america", but there were lots of tears involved so i put these memories aside for now and start packing.</p>
           </div>
         </div>
       </div>
       <div id="final2">
-        <img src="https://dl.dropboxusercontent.com/s/3qydd01zvj7up63/room.png?dl=0">
+        <img id="final2-img" data-src="https://dl.dropboxusercontent.com/s/3qydd01zvj7up63/room.png?dl=0">
         <div class="label">
           <p>hong kong has treated me so well, but maybe i do miss my actual twin bed back home. and target runs, and driving. i can't wait to tell my parents about the snarky waiter and the bus ride and the anime-with-chicken-nuggets.</p>
           <p>everything is back in its place. we lock the door and drag our luggage back down the scary stairs and head to the airport (<a id="lock" href="/">but this time by subway</a>).</p>
         </div>
       </div>
       <div id="end">
-        <img src="https://dl.dropboxusercontent.com/s/wb787i2g0lz2hfj/depart-1.gif?dl=0">
+        <img id="end-img" data-src="https://dl.dropboxusercontent.com/s/wb787i2g0lz2hfj/depart-1.gif?dl=0">
         <div>
           <p><h3>thank you for playing!</h3></p>
           <p>created by jessica tin during web art jam (march 20-21, 2021)</p>
@@ -425,9 +447,19 @@
       const linksToHome = new Set(['meetReturn', 'animeReturn', 'tripReturn']);
       const hidePrev = new Set(['plane', 'final1']);
       const visited = new Set();
+      const visitedChoices = new Set();
       let current = 'plane';
       let prevChoice = 'food2';
       let hasSeenEnd = false;
+      const imgToLoad = {
+        plane: ['bus-1', 'bus-2', 'room-img'],
+        bus: ['nap-img', 'food1-1', 'food1-2'],
+        room: ['food2-1', 'food2-2'],
+        nap: ['home-img'],
+        food1: ['meet1-img'],
+        food2: ['nugs-img'],
+        home: ['meet2-img', 'final1-img', 'final2-img', 'end-img'],
+      }
       const links = {
         airport: 'bus',
         guide: 'room',
@@ -466,13 +498,28 @@
         trip1: 'homeTrip',
       }
 
-      // check for query param
+      function loadImgById(id) {
+        const img = document.getElementById(id);
+        img.src = img.dataset.src;
+      }
+
+      // check for query param (USE FOR DEBUG ONLY)
       const href = window.location.href;
       const queryKey = 'jumpTo=';
       const queryIndex = href.indexOf(queryKey);
       let queryValue = '';
-      if (queryIndex >= 0) queryValue = href.substring(queryIndex + queryKey.length, href.length).trim();
+      let isDebug = false;
+      if (queryIndex >= 0) {
+        isDebug = true;
+        queryValue = href.substring(queryIndex + queryKey.length, href.length).trim();
+      }
       current = pages.has(queryValue) ? queryValue : current;
+
+      if (isDebug) { // if in debug mode, load all images upfront
+        Object.values(imgToLoad).forEach((idsToLoad) => {
+          idsToLoad.forEach(id => loadImgById(id))
+        });
+      }
 
       // show active
       showPage(current);
@@ -482,6 +529,7 @@
           console.log(`huh "${next}" doesnt exist`);
           return;
         }
+
         // hide back button on first page
         // TODO: hiding this for now due to complex back-home logic
         if (next === 'plane' && !hasSeenEnd) document.getElementById('nav-back').style.display = 'none';
@@ -497,27 +545,35 @@
         // reset all scrolled chats
         [...document.getElementsByClassName('chat')].forEach((chat) => chat.scrollTop = 0);
 
+        // load upcoming images, if any
+        if (!isDebug && !hasSeenEnd && visitedChoices.size === 0 && next in imgToLoad && !visited.has(next)) {
+          const idsToLoad = imgToLoad[next];
+          idsToLoad.forEach(id => loadImgById(id));
+        }
+
         // reset stuff if "play again"
         if (next === 'end') {
           hasSeenEnd = true;
           prevChoice = 'food2';
           visited.clear();
+          visitedChoices.clear();
           [...document.getElementById('home').getElementsByTagName('a')].forEach((link) => link.style.display = 'block');
         }
 
         // update state
         current = next;
+        visited.add(next);
       }
 
       function handleLink(linkId) {
         if (choices.has(linkId)) {
           document.getElementById(linkId).style.display = 'none';
-          visited.add(links[linkId]);
+          visitedChoices.add(links[linkId]);
         }
         let next = '';
         if (linkId === 'nav-back') {
           if (current === 'home') next = prevChoice;
-          else if (backLinks[current] === 'home' && visited.size === choices.size) next = 'final1';
+          else if (backLinks[current] === 'home' && visitedChoices.size === choices.size) next = 'final1';
           else next = backLinks[current];
         } else {
           next = links[linkId];
@@ -525,7 +581,7 @@
         if (linksToHome.has(linkId)) {
           prevChoice = current;
           // if all options have been visited, it's time to go home!
-          if (visited.size === choices.size) next = 'final1';
+          if (visitedChoices.size === choices.size) next = 'final1';
         }
         showPage(next);
       }
