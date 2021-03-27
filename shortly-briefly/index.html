@@ -435,7 +435,7 @@
       <div id="end">
         <img id="end-img" data-src="https://dl.dropboxusercontent.com/s/wb787i2g0lz2hfj/depart-1.gif?dl=0">
         <div>
-          <p><h3>thank you for playing!</h3></p>
+          <p><h3><i>thank you for playing!</i></h3></p>
           <p>created by jessica tin during web art jam (march 20-21, 2021)</p>
           <p><a class="socials" href="https://twitter.com/jsctn" target="_blank">twt</a> | <a class="socials" href="https://instagram.com/jsctn" target="_blank">insta</a> | <a class="socials" href="https://nyanseong.neocities.org" target="_blank">neocities</a></p>
           <p><a id="again" href="/"><i>play again?</i></a></p>
@@ -443,7 +443,7 @@
       </div>
     </div> <!-- main -->
     <script type="application/javascript">
-      const pages = new Set(['plane', 'bus', 'room', 'nap', 'food1', 'food2', 'home', 'meet1', 'meet2', 'nugs', 'trip1', 'final1', 'final2', 'end']);
+      const pages = new Set(['plane', 'bus', 'room', 'nap', 'food1', 'food2', 'home', 'meet1', 'meet2', 'nugs', 'trip1', 'trip2', 'final1', 'final2', 'end']);
       const choices = new Set(['homeMeet', 'homeAnime', 'homeTrip']);
       const linksToHome = new Set(['meetReturn', 'animeReturn', 'tripReturn']);
       const hidePrev = new Set(['plane', 'final1']);
@@ -455,10 +455,8 @@
       const imgToLoad = {
         plane: ['bus-1', 'bus-2', 'room-img'],
         bus: ['nap-img', 'food1-1', 'food1-2'],
-        room: ['food2-1', 'food2-2'],
-        nap: ['home-img'],
-        food1: ['meet1-img'],
-        food2: ['nugs-img'],
+        room: ['food2-1', 'food2-2', 'home-img'],
+        nap: ['meet1-img', 'meet2-img', 'nugs-img'],
         home: ['meet2-img', 'final1-img', 'final2-img', 'end-img'],
       }
       const links = {
@@ -493,10 +491,10 @@
         final2: 'final1',
         end: 'final2',
       };
-      const choiceLinks = {
-        meet: 'homeMeet',
-        nugs: 'homeAnime',
-        trip1: 'homeTrip',
+      const linksToHide = {
+        meetReturn: 'homeMeet',
+        animeReturn: 'homeAnime',
+        tripReturn: 'homeTrip',
       }
 
       function loadImgById(id) {
@@ -525,16 +523,15 @@
       // show active
       showPage(current);
 
-      function showPage(next) {
+      function showPage(next, isBack) {
         if (!pages.has(next)) {
           console.log(`huh "${next}" doesnt exist`);
           return;
         }
 
         // hide back button on first page
-        // TODO: hiding this for now due to complex back-home logic
         if (next === 'plane' && !hasSeenEnd) document.getElementById('nav-back').style.display = 'none';
-        else if (next === 'final1') document.getElementById('nav-back').style.display = 'none';
+        else if (next === 'end' && isBack) document.getElementById('nav-back').style.display = 'none';
         else document.getElementById('nav-back').style.display = 'block';
 
         // hide whatever is currently active
@@ -553,9 +550,8 @@
         }
 
         // reset stuff if "play again"
-        if (next === 'end') {
-          hasSeenEnd = true;
-          prevChoice = 'food2';
+        if (next === 'end') hasSeenEnd = true;
+        if (hasSeenEnd && next === 'plane') {
           visited.clear();
           visitedChoices.clear();
           [...document.getElementById('home').getElementsByTagName('a')].forEach((link) => link.style.display = 'block');
@@ -567,24 +563,25 @@
       }
 
       function handleLink(linkId) {
-        if (choices.has(linkId)) {
-          document.getElementById(linkId).style.display = 'none';
-          visitedChoices.add(links[linkId]);
+        // hide home choices once complete
+        if (linksToHome.has(linkId)) {
+          document.getElementById(linksToHide[linkId]).style.display = 'none';
+          visitedChoices.add(linkId);
         }
         let next = '';
         if (linkId === 'nav-back') {
-          if (current === 'home') next = prevChoice;
+          if (current === 'home' || current === 'final1') next = prevChoice;
           else if (backLinks[current] === 'home' && visitedChoices.size === choices.size) next = 'final1';
           else next = backLinks[current];
         } else {
           next = links[linkId];
         }
-        if (linksToHome.has(linkId)) {
+        if (linksToHome.has(linkId) || linkId === 'gohome') {
           prevChoice = current;
           // if all options have been visited, it's time to go home!
           if (visitedChoices.size === choices.size) next = 'final1';
         }
-        showPage(next);
+        showPage(next, linkId === 'nav-back');
       }
 
       // event listeners for link clicks
