@@ -279,6 +279,61 @@
       top: 20%;
       width: 420px;
     }
+    #trip1 img {
+      position: absolute;
+    }
+    #trip1 .label:nth-of-type(1) {
+      width: 68vh;
+      min-width: 480px;
+      left: 5vh;
+      top: 5vh;
+    }
+    #trip1 .label:nth-of-type(2) {
+      width: 40%;
+      min-width: 54vh;
+      right: 0;
+      bottom: 5vh;
+    }
+    #trip1-1-img {
+      height: 42vh;
+      left: 38vh;
+      bottom: 8vh;
+    }
+    #trip1-2-img {
+      height: 100%;
+      top: 0;
+      left: -4vh;
+    }
+    #trip1-3-img {
+      height: 22vh;
+      top: 32vh;
+      left: 30vh;
+    }
+    #trip1-4-img {
+      height: 34vh;
+      top: 8vh;
+      left: 64vh;
+    }
+    #trip2 img {
+      width: 480px;
+    }
+    #trip2 .label-wrapper {
+      display: inline-flex;
+      align-items: start;
+      position: relative;
+      width: 480px;
+      height: 270px;
+    }
+    #trip2 .label {
+      margin-top: 24px;
+      margin-left: 24px;
+    }
+    @media screen and (max-height: 560px) {
+      #trip2 {
+        position: absolute;
+        top: 3px;
+      }
+    }
     #final1 .spot {
       height: 26vh;
       width: 26vh;
@@ -323,7 +378,7 @@
         <div class="label">
           <!-- <h3>home, briefly</h3> -->
           <p>its been a whirlwind of a trip with my friends for the last three weeks. we've learned each others quirks and habits through and through, but even so i'm not sure they share the mixture of feelings speeding through my mind and swirling in my gut. i'm almost back in hong kong after 15 years, which is longer than many lifetimes and more than half of mine.</p>
-          <p>but no time to ponder this right now, the plane lands and we need to figure out how to <a id="airport" href="/">get out of the airport</a>...</p>
+          <p>but no time to ponder this right now, the plane lands and we need to figure out how to <a id="airport" href="/" title="cw: moving + looping gifs ahead">get out of the airport</a>...</p>
         </div>
         <img onload="handleFirstLoaded()" src="https://dl.dropboxusercontent.com/s/0e1ezjabcb59iw8/arrival-1.gif?dl=0">
       </div>
@@ -411,9 +466,27 @@
         </div>
       </div>
       <div id="trip1">
+        <img id="trip1-2-img" data-src="https://dl.dropboxusercontent.com/s/nta1aspmuy2xisw/trip-2.gif?dl=0">
+        <img id="trip1-1-img" data-src="https://dl.dropboxusercontent.com/s/lqbfez2kryza6ou/trip-1.gif?dl=0">
+        <img id="trip1-4-img" data-src="https://dl.dropboxusercontent.com/s/0jov4yjg5g7scbj/trip-6.gif?dl=0">
+        <img id="trip1-3-img" data-src="https://dl.dropboxusercontent.com/s/rkbyg6zkhalpmog/trip-3.gif?dl=0">
         <div class="label">
-          <p><i>oops, this page is still under construction ^^; please check back soon!</i></p>
-          <p><a id="tripReturn" href="/">return home</a></p>
+          <p>as the most "native" one, the task of coming up with an itinerary for our stay in hong kong naturally falls on me. eager to impress, i suggest a daytrip to see the big buddha statue on lantau island, then stopping by tai o, a quaint fishing village nearby.</p>
+        </div>
+        <div class="label">
+          <p>we are very pleased to find that tai o is home to tons of stray cats (perks of being a fishing village, i guess). every few feet we pause to take photos of another cat chilling on a ledge or the sidewalk. the sun sets quicker than i expect and we barely make <a id="night" href="/">the last bus back</a>.</p>
+        </div>
+      </div>
+      <div id="trip2">
+        <img id="trip2-1-img" data-src="https://dl.dropboxusercontent.com/s/l6bg5mcwl8yvo20/first-5.gif?dl=0">
+        <img id="trip2-2-img" data-src="https://dl.dropboxusercontent.com/s/up4wbvmccdohqyb/first-6.gif?dl=0">
+        <img id="trip2-3-img" data-src="https://dl.dropboxusercontent.com/s/v784ri3ic45o5fo/first-7.gif?dl=0">
+        <div class="label-wrapper">
+          <div class="label">
+            <p>the day isn't quite over yet: all that walking finally hit and the moment we step off the bus it's straight for the nearest cha chaan teng. we scarf down a meal SO FAST that the waiters don't even have a chance to scowl at us for taking too long.</p>
+            <p>then one last bit of exploring to walk it off. i'm still taking in the realness of the beautiful night views that i've only seen in edgy travel photos and music videos all these years.</p>
+            <p>we can't wait to <a id="tripReturn" href="/">go back and crash</a>. honestly the sofabed sounds amazing right now.</p>
+          </div>
         </div>
       </div>
       <div id="final1">
@@ -428,7 +501,7 @@
       <div id="final2">
         <img id="final2-img" data-src="https://dl.dropboxusercontent.com/s/3qydd01zvj7up63/room.png?dl=0">
         <div class="label">
-          <p>hong kong has treated me so well, but maybe i do miss my actual twin bed back home. and target runs, and driving. i can't wait to tell my parents about the snarky waiter and the bus ride and the anime-with-chicken-nuggets.</p>
+          <p>hong kong has treated me so well, but maybe i do miss my actual twin bed back home. and target runs, and driving. i can't wait to tell my parents about the snarky waiter and the stray cats and the anime-with-chicken-nuggets.</p>
           <p>everything is back in its place. we lock the door and drag our luggage back down the scary stairs and head to the airport (<a id="lock" href="/">but this time by subway</a>).</p>
         </div>
       </div>
@@ -457,6 +530,8 @@
         bus: ['nap-img', 'food1-1', 'food1-2'],
         room: ['food2-1', 'food2-2', 'home-img'],
         nap: ['meet1-img', 'meet2-img', 'nugs-img'],
+        food1: ['trip1-1-img', 'trip1-2-img', 'trip1-3-img', 'trip1-4-img'],
+        food2: ['trip2-1-img', 'trip2-2-img', 'trip2-3-img'],
         home: ['meet2-img', 'final1-img', 'final2-img', 'end-img'],
       }
       const links = {
@@ -472,6 +547,7 @@
         homeAnime: 'nugs',
         animeReturn: 'home',
         homeTrip: 'trip1',
+        night: 'trip2',
         tripReturn: 'home',
         packing: 'final2',
         lock: 'end',
@@ -488,6 +564,7 @@
         meet2: 'meet1',
         nugs: 'home',
         trip1: 'home',
+        trip2: 'trip1',
         final2: 'final1',
         end: 'final2',
       };
