@@ -380,7 +380,7 @@
           <p>its been a whirlwind of a trip with my friends for the last three weeks. we've learned each others quirks and habits through and through, but even so i'm not sure they share the mixture of feelings speeding through my mind and swirling in my gut. i'm almost back in hong kong after 15 years, which is longer than many lifetimes and more than half of mine.</p>
           <p>but no time to ponder this right now, the plane lands and we need to figure out how to <a id="airport" href="/" title="cw: moving + looping gifs ahead">get out of the airport</a>...</p>
         </div>
-        <img onload="handleFirstLoaded()" src="https://dl.dropboxusercontent.com/s/0e1ezjabcb59iw8/arrival-1.gif?dl=0">
+        <img onload="handleFirstLoaded()" onerror="handleFirstLoaded()" id="first-img" src="https://dl.dropboxusercontent.com/s/0e1ezjabcb59iw8/arrival-1.gif?dl=0">
       </div>
       <div id="bus">
         <img id="bus-1" data-src="https://dl.dropboxusercontent.com/s/2sfknssr0bgx5xr/arrival-2.gif?dl=0">
@@ -422,9 +422,9 @@
       </div>
       <div id="home">
         <div>
-          <a id="homeMeet" href="/"><div class="spot spot--cyan">my phone on the side table</div></a>
-          <a id="homeAnime" title="cw: image of food" href="/"><div class="spot spot--pink">the wall-mounted tv</div></a>
-          <a id="homeTrip" href="/"><div class="spot spot--green">the door</div></a>
+          <a id="homeMeet" href="/"><div class="spot spot--cyan">My phone on the side table.</div></a>
+          <a id="homeAnime" title="cw: image of food" href="/"><div class="spot spot--pink">The wall-mounted tv.</div></a>
+          <a id="homeTrip" href="/"><div class="spot spot--green">The front door.</div></a>
           <img id="home-img" data-src="https://dl.dropboxusercontent.com/s/ki32ega6558c26h/room-alt.png?dl=0">
         </div>
       </div>
@@ -491,7 +491,7 @@
       </div>
       <div id="final1">
         <div>
-          <a id="packing" href="/"><div class="spot spot--green">my open suitcase on the floor beside the coffee table</div></a>
+          <a id="packing" href="/"><div class="spot spot--green">My open suitcase on the floor beside the coffee table.</div></a>
           <img id="final1-img" data-src="https://dl.dropboxusercontent.com/s/ki32ega6558c26h/room-alt.png?dl=0">
           <div class="label">
             <p>and just like that it's almost time to fly back to america. "america" – i start to recall my feelings 15 years ago when my parents told me we'd be going to "america", but there were lots of tears involved so i put these memories aside for now and start packing.</p>
@@ -532,7 +532,7 @@
         nap: ['meet1-img', 'meet2-img', 'nugs-img'],
         food1: ['trip1-1-img', 'trip1-2-img', 'trip1-3-img', 'trip1-4-img'],
         food2: ['trip2-1-img', 'trip2-2-img', 'trip2-3-img'],
-        home: ['meet2-img', 'final1-img', 'final2-img', 'end-img'],
+        home: ['final1-img', 'final2-img', 'end-img'],
       }
       const links = {
         airport: 'bus',
@@ -626,12 +626,18 @@
           idsToLoad.forEach(id => loadImgById(id));
         }
 
+        // shorten alt text if revisiting home
+        if (next === 'home' && visitedChoices.size > 0) {
+          document.getElementById('home-img').alt = 'Same illustration as before of the messy living room.'
+        }
+
         // reset stuff if "play again"
         if (next === 'end') hasSeenEnd = true;
         if (hasSeenEnd && next === 'plane') {
           visited.clear();
           visitedChoices.clear();
           [...document.getElementById('home').getElementsByTagName('a')].forEach((link) => link.style.display = 'block');
+          document.getElementById('home-img').alt = 'The small living room viewed from the opposite angle as if sitting on the sofabed, now with 4 pairs of shoes scattered by the entrance, an open suitcase overflowing on the floor, and indistinct items strewn around. Two narrow doorways reveal a kitchen and another bedroom. Lineart illustration.'
         }
 
         // update state
@@ -679,5 +685,6 @@
         }
       };
     </script>
+    <script src="alt.js?v=210328" type="application/javascript"></script>
   </body>
 </html>
