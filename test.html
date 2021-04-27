@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>𝒋 𝒔 𝒄 𝒕 𝒏</title>
+  <meta name="description" content="jsctn">
+  <meta name="keywords" content="">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=200, initial-scale=1, minimum-scale=1">
+  <!-- <link rel="icon" type="image/png" href="logo/favicon.png"> -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700&display=swap" rel="stylesheet">
+  <style type="text/css">
+  :root {
+    --purple: #9860ff;
+    --green: lime;
+    --blue: #0000e0;
+    --bg-color: #ebeae1; 
+  }
+  body {
+    font-style: italic;
+    background-color: #e1dfca;
+    background-color: var(--bg-color);
+  }
+  h1 {
+    color: var(--purple);
+    margin-bottom: 60px;
+  }
+  h1 > span.ch {
+    font-family: 'Noto Serif SC', serif;
+  }
+  a, a:visited {
+    color: var(--blue);
+    background-color: var(--green);
+    padding: 2px 3px;
+  }
+  .inner {
+    font-size: 1.2em;
+    line-height: 1.6em;
+  }
+  span.toggle {
+    color: var(--purple);
+    font-size: 0.9em;
+    padding-right: 4px;
+    font-style: normal;
+    width: 16px;
+    display: inline-block;
+    text-align: center;
+  }
+  span.space, span.step, span.step-inner {
+    display: inline-block;
+  }
+  span.step {
+    text-align: right;
+    width: 24px;
+  }
+  span.step-inner {
+    height: 0.6em;
+    width: 16px;
+    border-bottom: solid 2px var(--purple);
+    border-left: solid 2px var(--purple);
+    vertical-align: text-top;
+  }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>jessica tin <span lang="zh-cn" class="ch">田嘉欣</span></h1>
+    <div class="inner" id="inner"></div>
+    <hr>
+    <div class="inner" style="display: block;">
+      <ul>
+        <li><a href="">jsctn.github.io</a> ← you are here</li>
+        <ul>
+          <li><a href="">shortly, briefly</a></li>
+          <ul>
+            <li>[description]</li>
+            <li><a href="">altsalt</a></li>
+            <li><a href="">virtualgoodsdealer</a></li>
+          </ul>
+          <li><a href="">instagram</a></li>
+          <li><a href="">twitter</a></li>
+          <li><a href="">are.na</a></li>
+        </ul>
+        <li><a href="">nyanseong.neocities.org</a></li>
+        <ul>
+          <li><a href="">digital fireplaces</a></li>
+          <li><a href="">zine library</a></li>
+          <li><a href="">journal</a></li>
+        </ul>
+        <li><a href="">ceremony</a></li>
+        <li><a href="">how can i help</a></li>
+        <li><a href="">de-neglect</a></li>
+        <ul>
+          <li><a href="">what is scabies</a></li>
+          <li><a href="">instagram</a></li>
+          <li><a href="">twitter</a></li>
+        </ul>
+        <li>resources</li>
+        <ul>
+          <li><a href="">asian american resources</a></li>
+          <li><a href="">guide to web accessibility</a></li>
+          <li><a href="">bay area black-owned restaurants</a></li>
+          <li><a href="">redistribute your wealth</a></li>
+        </ul>
+      </ul>
+    </div>
+  </div>
+  <script type="text/javascript">
+    const content = [
+      {name: 'jsctn.github.io', href: '/', desc: '← you are here', children: [
+        {name: 'shortly, briefly', href: 'shortly-briefly', children: [
+          {name: 'testing'},
+          {name: 'lorem ipsum'},
+        ], open: true},
+        {name: 'instagram', href: 'https://instagram.com/jsctn'},
+        {name: 'twitter', href: 'https://twitter.com/jsctn'},
+        {name: 'are.na', href: 'https://are.na/j-ess'},
+      ], open: true},
+      {name: 'nyanseong.neocities.org', href: 'https://nyanseong.neocities.org', desc: '— my digital sketchbook for code ideas and my favorite things', children: [
+      ], open: false},
+      {name: 'ceremony', href: 'https://ceremonyonline.net/'},
+      {name: 'howcanihelp', href: 'https://howcanihelp.carrd.co'},
+    ];
+
+    function getNodeHtml(node, depth=0) {
+      const {name, href, desc, children, open} = node;
+      const arrow = !children || !children.length ? '▷' : open ? '▼' : '▶';
+      const link = href ? `<a href="${href}">${name}</a>` : `<span>${name}</span>`;
+      const childHtml = getChildHtml(children, depth+1);
+      const toggleHtml = href ? `<span class="toggle">${arrow}</span>` : ' ';
+      return `${toggleHtml}${link} ${desc ? desc : ''}${childHtml}`;
+    }
+
+    function getChildHtml(children, depth=0) {
+      if (!children || !children.length) return '';
+      let childHtml = '';
+      children.forEach(child => {
+        const stepHtml = depth ? `${depth > 1 ? `<span class="space" style="width: ${(depth-1)*26}px"></span>` : ''}<span class="step"><span class="step-inner"></span></span>` : '';
+        childHtml += `<div>${stepHtml}${getNodeHtml(child, depth)}</div>`;
+      });
+      return childHtml;
+    }
+
+    document.getElementById('inner').innerHTML = getChildHtml(content);
+  </script>
+</body>
+</html>
