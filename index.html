@@ -76,7 +76,7 @@
     padding-right: 2px;
     position: relative;
   }
-  .toggle.click {
+  .click {
     cursor: pointer;
   }
   .link-row {
@@ -238,10 +238,11 @@
 
       const canToggle = id && children && children.length;
       const toggleId = canToggle ? ` id="toggle--${id}"` : '';
+      const arrowId = canToggle ? ` id="toggle-arrow--${id}"` : '';
       const handler = canToggle ? ` onclick="handleToggle('${id}')"` : '';
       const tabIndex = canToggle ? ' tabIndex="0"' : '';
-      const clickClass = canToggle ? ' click' : '';
-      const toggleHtml = name || children ? `<div class="toggle ${arrowClass}${clickClass}" ${toggleId}${handler}${tabIndex}>${arrow}</div>` : '<div class="indent text-indent"></div>';
+      const clickClass = canToggle ? ' class="click"' : '';
+      const toggleHtml = name || children ? `<div class="toggle ${arrowClass}" ${toggleId}><span ${clickClass}${arrowId}${handler}${tabIndex}>${arrow}</span></div>` : '<div class="indent text-indent"></div>';
       // const toggleHtml = (!depth && name) || children ? `<div class="toggle ${arrowClass}${clickClass}" ${toggleId}${handler}${tabIndex}>${arrow}</div>` : '<div class="indent text-indent"></div>';
 
       const linkTextInner = `${link} <span class="desc">${desc ? desc : ''}</span>`.trim();
@@ -269,7 +270,7 @@
 
       // swap toggle arrow
       const newArrow = currOpen ? RIGHT_ARROW : DOWN_ARROW;
-      getToggleById(id).innerHTML = newArrow;
+      getArrowById(id).innerHTML = newArrow;
 
       // hide the extra line segment
       if (currOpen) getToggleById(id).className = 'toggle click';
@@ -290,6 +291,22 @@
     function getToggleById(id) {
       return document.getElementById(`toggle--${id}`);
     }
+    function getArrowById(id) {
+      return document.getElementById(`toggle-arrow--${id}`);
+    }
+
+    // keyboard events: enter (13) or space (32)
+    document.onkeydown = (e) => {
+      if (!document.activeElement || !document.activeElement.id) return;
+      if (e.keyCode === 13 || e.keyCode === 32) {
+        const idPrefix = 'toggle-arrow--';
+        if (document.activeElement.id.substring(0, idPrefix.length) !== idPrefix) return;
+        e.preventDefault();
+        const activeId = document.activeElement.id.substring(idPrefix.length);
+        handleToggle(activeId);
+      }
+    };
+
   </script>
 </body>
 </html>
