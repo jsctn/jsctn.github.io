@@ -79,6 +79,10 @@
   .click {
     cursor: pointer;
   }
+  .click.close {
+    display: inline-block;
+    transform: rotate(-90deg);
+  }
   .link-row {
     border: 1px cyan solid;
     display: flex;
@@ -187,10 +191,9 @@
         {name: 'digital fireplaces', href: 'https://nyanseong.neocities.org/fireplace.html'},
         {name: 'zine library', href: 'https://nyanseong.neocities.org/zines.html'},
       ], open: false},
-      {id: 'socials', desc: 'socials', children: [
-        {name: 'instagram', href: 'https://instagram.com/jsctn'},
+      {id: 'socials', desc: 'socials..', children: [
         {name: 'twitter', href: 'https://twitter.com/jsctn'},
-        {name: 'are.na', href: 'https://are.na/j-ess'},
+        {name: 'instagram', href: 'https://instagram.com/jsctn'},
       ], open: false},
       {name: 'ceremony', href: 'https://ceremonyonline.net/'},
       {name: 'howcanihelp', href: 'https://howcanihelp.carrd.co'},
@@ -210,7 +213,8 @@
     ];
     const TOGGLE_STATE = {};
     const DOWN_ARROW = '▼';
-    const RIGHT_ARROW = '▶';
+    // const RIGHT_ARROW = '▶';
+    const RIGHT_ARROW = DOWN_ARROW;
     const RIGHT_EMPTY_ARROW = '▷';
 
     // initialize links from config
@@ -241,7 +245,8 @@
       const arrowId = canToggle ? ` id="toggle-arrow--${id}"` : '';
       const handler = canToggle ? ` onclick="handleToggle('${id}')"` : '';
       const tabIndex = canToggle ? ' tabIndex="0"' : '';
-      const clickClass = canToggle ? ' class="click"' : '';
+      const clickOpen = open ? 'open' : 'close';
+      const clickClass = canToggle ? ` class="click ${clickOpen}"` : '';
       const toggleHtml = name || children ? `<div class="toggle ${arrowClass}" ${toggleId}><span ${clickClass}${arrowId}${handler}${tabIndex}>${arrow}</span></div>` : '<div class="indent text-indent"></div>';
       // const toggleHtml = (!depth && name) || children ? `<div class="toggle ${arrowClass}${clickClass}" ${toggleId}${handler}${tabIndex}>${arrow}</div>` : '<div class="indent text-indent"></div>';
 
@@ -257,13 +262,11 @@
     document.getElementById('inner').innerHTML = getChildHtml(CONTENT);
 
     // initially hide un-open child blocks
-
     Object.entries(TOGGLE_STATE).forEach(([id, open]) => {
       if (!open) getChildBlockById(id).style.display = 'none';
     });
 
     // toggle click handler
-
     function handleToggle(id) {
       if (!(id in TOGGLE_STATE)) return;
       const currOpen = TOGGLE_STATE[id];
@@ -271,6 +274,7 @@
       // swap toggle arrow
       const newArrow = currOpen ? RIGHT_ARROW : DOWN_ARROW;
       getArrowById(id).innerHTML = newArrow;
+      getArrowById(id).className = currOpen ? 'click close' : 'click open';
 
       // hide the extra line segment
       if (currOpen) getToggleById(id).className = 'toggle click';
