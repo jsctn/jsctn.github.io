@@ -178,7 +178,8 @@
   <script type="text/javascript">
     const CONTENT = [
       {id: 'jsctn', name: 'jsctn.github.io', href: '/', desc: '<span style="color: #ae82ff">← you are here</span>', children: [
-        {id: 'shortly', name: 'shortly, briefly', href: 'shortly-briefly', desc: '– an interactive webzine of my trip to hong kong a while ago, exploring the meaning of "home"', children: [
+        {id: 'shortly', name: 'shortly, briefly', href: 'shortly-briefly', desc: '– an interactive webzine of my trip to hong kong a while ago, exploring the concept of "home." best viewed in landscape-mode', children: [
+          {desc: 'best viewed in landscape mode :)'},
           {id: 'shortly-also', desc: 'also seen on..', children: [
             {name: 'altsalt', href: 'https://www.altsalt.com/listing/shortly-briefly/43'},
             {name: 'virtualgoodsdealer', href: 'https://pages.virtualgoodsdealer.com/exhibits#shortly-briefly'},
@@ -195,7 +196,7 @@
         {name: 'twitter', href: 'https://twitter.com/jsctn'},
         {name: 'instagram', href: 'https://instagram.com/jsctn'},
       ], open: false},
-      {name: 'ceremony', href: 'https://ceremonyonline.net/'},
+      {name: 'ceremony', href: 'https://linktr.ee/ceremonyonline'},
       {name: 'howcanihelp', href: 'https://howcanihelp.carrd.co'},
       {id: 'dn', name: 'de-neglect', href: 'https://www.youtube.com/channel/UCamAWioF6v6GvOZG_Dkizmw', children: [
         {desc: 'a passion project with my friends to raise awareness about neglected tropical diseases (NTDs).'},
@@ -204,7 +205,7 @@
         {name: 'instagram', href: 'https://instagram.com/de_neglect'},
         {name: 'twitter', href: 'https://twitter.com/deneglect'},
       ], open: false},
-      {id: 'res', desc: 'other resources..', children: [
+      {id: 'res', desc: 'some resources..', children: [
         {name: 'asian american resources', href: 'https://docs.google.com/document/d/1CGLrII9ycdPPcavGkatzGpoqGsdwJm46AgDXVWla3H8/view'},
         {name: 'guide to web accessibility', href: 'https://accessguide.io/'},
         {name: 'bay area black-owned restaurants', href: 'https://docs.google.com/spreadsheets/d/1mTthE5lwqVnTCIm3iQtQXLyxwK-pc17cuCp--BhAYX8/edit#gid=0'},
@@ -238,7 +239,7 @@
 
       const arrow = !children || !children.length ? RIGHT_EMPTY_ARROW : open ? DOWN_ARROW : RIGHT_ARROW;
       const arrowClass = !children || !children.length ? 'right-empty' : open ? 'down' : 'right';
-      const link = name ? href ? `<a href="${href}">${name}</a>` : `<span style="text-decoration:underline">${name}</span>` : '';
+      const link = name ? href ? `<a href="${href}" target="_blank">${name}</a>` : `<span style="text-decoration:underline">${name}</span>` : '';
 
       const canToggle = id && children && children.length;
       const toggleId = canToggle ? ` id="toggle--${id}"` : '';
@@ -272,8 +273,6 @@
       const currOpen = TOGGLE_STATE[id];
 
       // swap toggle arrow
-      const newArrow = currOpen ? RIGHT_ARROW : DOWN_ARROW;
-      getArrowById(id).innerHTML = newArrow;
       getArrowById(id).className = currOpen ? 'click close' : 'click open';
 
       // hide the extra line segment
