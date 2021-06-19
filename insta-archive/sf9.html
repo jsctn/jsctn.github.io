@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>𝒋𝒔𝒄𝒕𝒏'𝒔 𝒊𝒏𝒔𝒕𝒂 𝒂𝒓𝒄𝒉𝒊𝒗𝒆</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=200, initial-scale=1, minimum-scale=1">
+  <link rel="icon" type="image/png" href="/favicon-green.png">
+  <style type="text/css">
+  body {
+    margin: 0;
+    --square-width: 360px;
+    --gap-width: 36px;
+  }
+  .main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: var(--gap-width);
+    margin: var(--gap-width);
+    min-width: calc(3 * var(--square-width) + 2 * var(--gap-width) + 6px);
+  }
+  img {
+    box-sizing: border-box;
+    width: var(--square-width);
+    height: var(--square-width);
+    pointer-events: none;
+  }
+  img.white-border {
+    border: 24px white solid;
+  }
+  .img-box {
+    height: var(--square-width);
+    width: var(--square-width);
+    border: 1px solid black;
+  }
+  .img-box:hover {
+    border-color: #ddd;
+    cursor: pointer;
+  }
+  .img-box > img {
+    position: absolute;
+  }
+  .ref {
+    display: none;
+  }
+  .ref--show {
+    display: block;
+  }
+  .row {
+    display: flex;
+    row-gap: var(--gap-width);
+    column-gap: var(--gap-width);
+    flex-wrap: wrap;
+  }
+  .textbox-inner {
+    height: var(--square-width);
+    width: var(--square-width);
+    border: 1px solid black;
+    box-sizing: border-box;
+    background-color: white;
+    padding: 18px;
+  }
+  </style>
+</head>
+<body>
+  <div class="main">
+    <div class="row">
+      <div class="textbox">
+        <div class="textbox-inner">
+          <p>these might be my favorite portraits i've taken, in the months right before lockdown. many of my most treasured memories are of my photoshoot shenanigans with my friends - something about hanging out with some of my favorite people, taking cute photos, plus the creative synergy that unexpectedly blossoms from our messing around in a random park or hotel lobby.</p>
+          <p>these photos and edits are inspired by the teaser photos for sf9's "good guy" era - click on an image to see a comparison.</p>
+          <p style="color: gray; font-style: italic; display: flex; align-items: baseline;">
+            <a href="./" style="color: gray; font-style: italic;">back to main</a>
+            <span style="flex-grow: 1; text-align: right; font-size: 0.96em">page created: 6/18/2021</span>
+          </p>
+        </div>
+      </div>
+      <div class="img-box">
+        <img class="white-border" height="360" width="360" src="https://dl.dropboxusercontent.com/s/925uobfvlikz0a7/202001-02.jpg?dl=0">
+        <img class="white-border ref" height="360" width="360" src="https://dl.dropboxusercontent.com/s/41fk999gm7ey9uu/202001-03.jpg?dl=0">
+      </div>
+      <div class="img-box">
+        <img class="white-border" height="360" width="360" src="https://dl.dropboxusercontent.com/s/301l7n28uj19mrx/202001-04.jpg?dl=0">
+        <img class="white-border ref" height="360" width="360" src="https://dl.dropboxusercontent.com/s/zge1a1ebly1s53d/202001-01.jpg?dl=0">
+      </div>
+    </div>
+    <div class="row">
+      <div class="img-box">
+        <img height="360" width="360" src="https://dl.dropboxusercontent.com/s/k5j9axv0tpr9nmz/202008-13.jpg?dl=0">
+        <img class="white-border ref" height="360" width="360" src="https://dl.dropboxusercontent.com/s/mm6c81atypz4c9y/202008-07.jpg?dl=0">
+      </div>
+      <div class="img-box">
+        <img height="360" width="360" src="https://dl.dropboxusercontent.com/s/he5banpwptbysu2/202008-15.jpg?dl=0">
+        <img class="white-border ref" height="360" width="360" src="https://dl.dropboxusercontent.com/s/mhrlnts77by09g2/202008-03.jpg?dl=0">
+      </div>
+      <div class="img-box">
+        <img height="360" width="360" src="https://dl.dropboxusercontent.com/s/ldpn552vbsiv7zp/202008-11.jpg?dl=0">
+        <img class="white-border ref" height="360" width="360" src="https://dl.dropboxusercontent.com/s/37vkbfw290icr3y/202008-02.jpg?dl=0">
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    function handleBoxClick(e) {
+      if (!e || !e.target) return;
+      const refImgs = e.target.getElementsByClassName('ref');
+      if (refImgs.length > 0) {
+        if (refImgs[0].className.indexOf('ref--show') >= 0) {
+          refImgs[0].className = 'white-border ref';
+        } else {
+          refImgs[0].className = 'white-border ref ref--show';
+        }
+      }
+    }
+    const boxes = document.getElementsByClassName('img-box');
+    for (let i=0; i<boxes.length; i++) {
+      const box = boxes[i];
+      box.addEventListener('click', handleBoxClick);
+    }
+    document.onkeydown = (e) => {
+      if (!document.activeElement || !document.activeElement.id) return;
+      if (e.keyCode === 13 || e.keyCode === 32) {
+        // wip
+      }
+    }
+  </script>
+</body>
+</html>
