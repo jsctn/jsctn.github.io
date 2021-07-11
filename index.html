@@ -167,7 +167,9 @@
     height: calc(100% - 32px + 8px);
     background-color: var(--purple);    
   }
-
+  span.desc {
+    font-size: 0.95em;
+  }
   </style>
 </head>
 <body>
@@ -193,18 +195,21 @@
         {name: 'digital fireplaces', href: 'https://nyanseong.neocities.org/fireplace.html'},
         {name: 'zine library', href: 'https://nyanseong.neocities.org/zines.html'},
       ], open: true},
+      {id: 'projects', desc: 'other projects..', children: [
+          {name: 'online birthday bash', href: 'https://its-jess-day.herokuapp.com', desc: '– a digital party for my birthday in 2021'},
+          {name: 'ceremony', href: 'https://linktr.ee/ceremonyonline', desc: '– contributor to vol. 2+3 zines'},
+          {name: 'howcanihelp', href: 'https://howcanihelp.carrd.co'},
+          {id: 'dn', name: 'de-neglect', href: 'https://www.youtube.com/channel/UCamAWioF6v6GvOZG_Dkizmw', children: [
+            {desc: 'a passion project with my friends to raise awareness about neglected tropical diseases (NTDs).'},
+            {name: 'what is scabies?', href: 'https://www.youtube.com/watch?v=utvvqs0i1aY', desc: '(youtube)'},
+            {name: 'lecture on NTDs', href: 'https://www.youtube.com/watch?v=k5bVz2oGfVY', desc: '(youtube)'},
+            {name: 'instagram', href: 'https://instagram.com/de_neglect'},
+            {name: 'twitter', href: 'https://twitter.com/deneglect'},
+          ], open: false},
+      ], open: false},
       {id: 'socials', desc: 'socials..', children: [
         {name: 'twitter', href: 'https://twitter.com/jsctn'},
         {name: 'instagram', href: 'https://instagram.com/jsctn'},
-      ], open: false},
-      {name: 'ceremony', href: 'https://linktr.ee/ceremonyonline'},
-      {name: 'howcanihelp', href: 'https://howcanihelp.carrd.co'},
-      {id: 'dn', name: 'de-neglect', href: 'https://www.youtube.com/channel/UCamAWioF6v6GvOZG_Dkizmw', children: [
-        {desc: 'a passion project with my friends to raise awareness about neglected tropical diseases (NTDs).'},
-        {name: 'what is scabies?', href: 'https://www.youtube.com/watch?v=utvvqs0i1aY', desc: '(youtube)'},
-        {name: 'lecture on NTDs', href: 'https://www.youtube.com/watch?v=k5bVz2oGfVY', desc: '(youtube)'},
-        {name: 'instagram', href: 'https://instagram.com/de_neglect'},
-        {name: 'twitter', href: 'https://twitter.com/deneglect'},
       ], open: false},
       {id: 'res', desc: 'some resources..', children: [
         {name: 'asian american resources', href: 'https://docs.google.com/document/d/1CGLrII9ycdPPcavGkatzGpoqGsdwJm46AgDXVWla3H8/view'},
