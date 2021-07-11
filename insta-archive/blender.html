@@ -5,14 +5,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=200, initial-scale=1, minimum-scale=1">
   <link rel="icon" type="image/png" href="/favicon-green.png">
+  <link rel="stylesheet" type="text/css" href="gallery.css">
   <style type="text/css">
   .main {
-    --square-width: 400px;
-    min-width: calc(3 * var(--square-width) + 12px);
-    display: flex;
-    flex-wrap: wrap;
     column-gap: 6px;
     row-gap: 6px;
+  }
+  img {
+    pointer-events: none;
   }
   .textbox {
     display: inline-block;
@@ -21,9 +21,7 @@
     box-sizing: border-box;
     border: 1px solid black;
     padding: 18px;
-  }
-  img {
-    pointer-events: none;
+    overflow-y: auto;
   }
   </style>
 </head>
@@ -40,7 +38,7 @@
     <img width="400" height="400" src="https://dl.dropboxusercontent.com/s/xwtucw13qwfyskf/202011-02.jpg?dl=0" alt="A wavy, fabric-like metallic square on a gradient background transitioning from a warm purple to yellow.">
     <img width="400" height="400" src="https://dl.dropboxusercontent.com/s/glhlc2u115x5rp6/202011-01.jpg?dl=0" alt="An ice cube against a background that gradiates from purple to teal-green.">
     <img width="400" height="400" src="https://dl.dropboxusercontent.com/s/eq1rhgqi7al63hq/202011-04.jpg?dl=0" alt="An antique car with a mirror-like surface against a cobalt blue and teal green gradient background.">
-    <div class="textbox">
+    <div class="textbox square">
       <p>it seems like every artist ever suddenly had the urge to learn blender (an open-source 3d modeling software) during this pandemic. it kinda makes sense because 3d is clearly the next big thing (due to increased everyday computing power) and holistically probably a valuable skill to have.</p>
       <p>in two-ish months i got to a pretty good place where i could make convincingly decent graphics, but once i encountered more complex topics like uv unwrapping and shaders i got intimidated (and distracted by my growing interest in small web dev) and stopped. funnily, those two months were in the middle of the summer, so the heat plus my struggling gpu constantly set off my laptop fans lol</p>
       <p style="color: gray; font-style: italic; display: flex; align-items: baseline;">

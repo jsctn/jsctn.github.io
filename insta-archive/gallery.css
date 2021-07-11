@@ -1,0 +1,13 @@
+.main {
+  --square-width: 400px;
+  --max-square-width: 90vw;
+  width: calc(3 * var(--square-width) + 12px);
+  max-width: calc(3 * var(--max-square-width) + 12px);
+  display: flex;
+  flex-wrap: wrap;
+}
+img, .square {
+  object-fit: cover;
+  max-width: 90vw;
+  max-height: 90vw;
+}
