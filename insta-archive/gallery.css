@@ -8,6 +8,9 @@
 }
 img, .square {
   object-fit: cover;
-  max-width: 90vw;
-  max-height: 90vw;
+  max-width: var(--max-square-width);
+  max-height: var(--max-square-width);
+}
+img.vert {
+  max-height: calc(1.25 * 90vw);
 }
