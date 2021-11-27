@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>𝒋𝒔𝒄𝒕𝒏'𝒔 𝒊𝒏𝒔𝒕𝒂 𝒂𝒓𝒄𝒉𝒊𝒗𝒆</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=200, initial-scale=1, minimum-scale=1">
+  <link rel="icon" type="image/png" href="/favicon-green.png">
+  <style type="text/css">
+  body {
+    margin: 0;
+    --col-gap: 12px;
+    --row-gap: 48px;
+  }
+  .main {
+    width: calc(400px + 225px + var(--col-gap));
+    padding: 0 20px;
+    margin: 20px auto;
+  }
+  .textbox {
+    padding-bottom: 16px;
+  }
+  .fit-screen {
+    max-width: 84vw;
+  }
+  .row {
+    margin: var(--row-gap) 0;
+    display: flex;
+    column-gap: var(--col-gap);
+  }
+  img {
+    box-sizing: border-box;
+    border: 1px solid black;
+    pointer-events: none;
+  }
+  div.link {
+    width: 225px;
+    height: 225px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid blue;
+    color: blue;
+  }
+  div.link:before {
+    content: "→";
+  }
+  div.link:hover {
+    background-color: blue;
+    color: white;
+  }
+  div.link:hover:before {
+    text-align: left;
+    margin: 6px;
+    font-size: 2.7em;
+    word-break: break-all;
+    word-wrap: anywhere;
+  }
+  div.link.shortly:hover:before {
+    content: "https://jsctn.github.io/shortly-briefly";
+  }
+  div.link.zines:hover:before {
+    content: "https://nyanseong.neocities.org/zines.html";
+  }
+  div.link.cow:hover:before {
+    content: "https://nyanseong.neocities.org/cow.html";
+  }
+  .row a {
+    text-decoration: none;
+  }
+  </style>
+</head>
+<body>
+  <div class="main">
+    <div class="row">
+      <img width="400" height="225" src="https://dl.dropboxusercontent.com/s/xpitvxi40b0q5t9/shortly-800.gif?dl=0" alt="">
+      <a href="/shortly-briefly/" target="_blank">
+        <div class="link shortly"></div>
+      </a>
+    </div>
+    <div class="row">
+      <img width="400" height="225" src="https://dl.dropboxusercontent.com/s/n8z322irh0esyag/zines-800.gif?dl=0" alt="">
+      <a href="https://nyanseong.neocities.org/zines.html" target="_blank">
+        <div class="link zines"></div>
+      </a>
+    </div>
+    <div class="row">
+      <img width="400" height="225" src="https://dl.dropboxusercontent.com/s/n3a5eod5hztemol/cow-800.gif?dl=0" alt="">
+      <a href="https://nyanseong.neocities.org/cow.html" target="_blank">
+        <div class="link cow"></div>
+      </a>
+    </div>
+    <div class="textbox">
+      <p class="fit-screen">i'm finding it harder than expected to write about my 2021, without the temporal distance as with the other archives. i have to take a big step back to fit the last 11 months within view.</p>
+      <p class="fit-screen">entering the second year of the pandemic was undoubtedly grim, even when i have it so much better than many. the loneliness and pessimism amidst the unending grind feels crushing on some days. my laments feel a bit out of place next to these flashy gifs, but i feel compelled to mention it here. i don't think it's possible to fully express in instagram posts the existential dread and empty hours spent sitting with my anxiety between the rare productive ones working on my art.</p>
+      <p class="fit-screen">that said, i feel blessed to have found solace and community in slow/small web. at this point i don't think it's another passing "quarantine hobby" like my brief stint in blender: i find myself so excited to make more and learn more about the web, and through my little projects i've met others online who also care about this stuff. even in this shithole of times i feel like maybe i'm growing as a person and an artist.</p>
+      <p style="color: gray; font-style: italic; display: flex; align-items: baseline;">
+        <a href="./" style="color: gray; font-style: italic;">back to main</a>
+        <span style="flex-grow: 1; text-align: right; font-size: 0.96em">page created: 11/27/2021</span>
+      </p>
+    </div>
+  </div>
+</body>
