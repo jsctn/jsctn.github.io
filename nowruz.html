@@ -24,6 +24,7 @@
       display: flex;
       flex-direction: row;
       gap: 24px;
+      flex-shrink: 0;
     }
     img.lily {
       position: relative;
@@ -31,22 +32,19 @@
     img.bg {
       position: absolute;
     }
+    section {
+      line-height: 21pt;
+    }
     section.persian {
-      font-size: 17pt;
-      text-orientation: sidways-right;
+      font-size: 16pt;
+      text-orientation: sideways-right;
       text-align: right;
     }
-    .english-image {
-      background: blue;
-      height: fit-content;
-      overflow: hidden;
-      margin: 16px 0;
-      display: flex;
-      mix-blend-mode: darken;
+    section.english {
+      font-size: 12pt;
     }
-    section.english img {
-      margin: 0;
-      mix-blend-mode: luminosity;
+    section > p {
+      margin: 24px 0;
     }
     p > span {
       display: block;
@@ -56,7 +54,6 @@
     }
     .source {
       color: gray;
-      margin-left: 8px;
       font-style: italic;
     }
     .source a, source a:visited {
@@ -66,7 +63,7 @@
 </head>
 <body>
   <h1 class="persian"><span>حافظ</span>نفسِ بادِ صبا مُشک‌فشان خواهد شد</h1>
-  <h2>Song of Spring <span>by Hafez (translation by Michael Boylan)</span></h2>
+  <h2>Ghazal 164 <span>by Hafez (translated by Reza Saberi)</span></h2>
   <main>
   <div class="text">
     <section class="persian">
@@ -109,10 +106,43 @@
       <audio controls src="https://api.ganjoor.net/api/audio/file/3317.mp3" />
     </section>
     <section class="english">
-      <div class="english-image">
-        <img src="http://www.magepublishers.com/wp-content/uploads/2015/01/hafez_song_500w.gif" />
-      </div>
-      <p class="source">sources: <a href="https://ganjoor.net/hafez/ghazal/sh164" target="_blank">original</a>, <a href="https://magepublishers.com/hafez-dance-life-poetry-read-persian-english/" target="_blank">translation</a></p>
+      <p>
+        <span class="line1">The breath of the zephyr will become musk-diffusing</span>
+        <span class="line2">and the old world will grow young again</span>
+      </p>
+      <p>
+        <span class="line1">The Judas-tree will give a cornelian cup to the lily,</span>
+        <span class="line2">and the eye of the narcissus will me anxious for the anemone.</span>
+      </p>
+      <p>
+        <span class="line1">The nightingale after all that pain of separation,</span>
+        <span class="line2">will roaringly dash all the way to the pavilion of the rose</span>
+      </p>
+      <p>
+        <span class="line1">If I went from mosque to tavern, do not carp</span>
+        <span class="line2">the preaching was too long, and time was passing</span>
+      </p>
+      <p>
+        <span class="line1">O heart if you postpone today’s pleasure until tomorrow,</span>
+        <span class="line2">who will guarantee a lasting life for you?</span>
+      </p>
+      <p>
+        <span class="line1">In the month of Sha’ban do not neglect the cup of wine</span>
+        <span class="line2">this sun will be out of sight until the ‘Eid of Ramadan</span>
+      </p>
+      <p>
+        <span class="line1">The rose is precious, appreciate its company</span>
+        <span class="line2">It came into the garden this way, and will go out through that</span>
+      </p>
+      <p>
+        <span class="line1">O minstrel, this is the intimates’ assembly, sing a song</span>
+        <span class="line2">How long should you say: “Passed like this, and like that will pass?”</span>
+      </p>
+      <p>
+        <span class="line1">Hafez came into the realm of existence for your sake</span>
+        <span class="line2">take a step for his farewell, for he will soon pass.</span>
+      </p>
+      <p class="source">sources: <a href="https://ganjoor.net/hafez/ghazal/sh164" target="_blank">original</a>, <a href="https://archive.blogs.harvard.edu/sulaymanibnqiddees/2016/05/#:~:text=fast%20and%20pray.-,Hafez,-Translation%3A" target="_blank">translation</a></p>
     </section>
   </div>
   <div class="images">
